@@ -1,0 +1,12 @@
+package: rex_socialhub/twitter
+version: '1.0.0'
+author: Thomas Kaegi
+supportpage: github.com/phoebusryan/rex_socialhub, redaxo.org/de/forum
+
+page:
+    title: 'translate:twitter'
+    perm: rex_socialhub[twitter]
+    icon: rex-icon fa-twitter
+    pjax: false
+    subpages:
+        index: { title: 'translate:twitter' }

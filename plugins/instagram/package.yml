@@ -1,0 +1,12 @@
+package: rex_socialhub/instagram
+version: '1.0.0'
+author: Thomas Kaegi
+supportpage: github.com/phoebusryan/rex_socialhub, redaxo.org/de/forum
+
+page:
+    title: 'translate:instagram'
+    icon: rex-icon fa-instagram
+    perm: rex_socialhub[instagram]
+    pjax: false
+    subpages:
+        index: { title: 'translate:instagram' }
