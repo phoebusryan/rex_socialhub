@@ -6,10 +6,12 @@ supportpage: github.com/factorylabs/rex_socialhub, redaxo.org/de/forum
 requires:
   packages: 
     cronjob: '>=5.0.alpna'
+
 page:
     title: 'translate:facebook'
     icon: rex-icon fa-facebook
     perm: rex_socialhub[facebook]
     pjax: false
     subpages:
-        index: { title: 'translate:facebook' }
+        index: { title: 'translate:settings' }
+        entries: { title: 'translate:entries' }

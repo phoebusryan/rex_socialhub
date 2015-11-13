@@ -1,8 +1,12 @@
 package: rex_socialhub/twitter
 version: '1.0.0'
 author: Thomas Kaegi
-supportpage: github.com/phoebusryan/rex_socialhub, redaxo.org/de/forum
+supportpage: github.com/factorylabs/rex_socialhub, redaxo.org/de/forum
 
+requires:
+  packages: 
+    cronjob: '>=5.0.alpna'
+    
 page:
     title: 'translate:twitter'
     perm: rex_socialhub[twitter]
