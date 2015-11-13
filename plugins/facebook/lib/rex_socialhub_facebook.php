@@ -2,6 +2,12 @@
 
 	class rex_socialhub_facebook extends rex_socialhub {
 
+    protected $table = 'rex_socialhub_facebook';
+
+    protected function __construct() {
+      parent::__construct();
+    }
+
 		public static function cron() {
       $fb = new Facebook\Facebook([
         'app_id' => '1621100048122788',
@@ -31,7 +37,7 @@
           $newPost->setValue('fid',$fb_post['id']);
           $newPost->setValue('message',$fb_post['message']);
           $newPost->setValue('name',$fb_post['from']['name']);
-          $newPost->setValue('from',json_encode($fb_post['from']));
+          $newPost->setValue('author',json_encode($fb_post['from']));
           $newPost->setValue('type',$fb_post['type']);
           $newPost->setValue('privacy',json_encode($fb_post['privacy']));
           $newPost->setValue('likes',json_encode($fb_post['likes']));
@@ -45,5 +51,18 @@
         }
       }
 		}
+
+
+    /**
+     * Creates a rex_sql instance.
+     *
+     * @param int $DBID
+     *
+     * @return static Returns a rex_sql instance
+     */
+    public static function factory() {
+      $class = static::getFactoryClass();
+      return new $class();
+    }
 	}
 ?>

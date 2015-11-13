@@ -20,7 +20,6 @@ if($newCron->getRows() === 0) {
   $newCron->setValue('status',1);
   $newCron->setValue('execution_start',date('Y-m-d').' 01:00:00');
 
-
   $newCron->addGlobalUpdateFields();
   $newCron->addGlobalCreateFields();
   try {

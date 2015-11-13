@@ -1,7 +1,16 @@
 <?php
 	abstract class rex_socialhub {
 
+		private $sql = null;
+
+    use rex_factory_trait;
+
 		abstract public static function cron();
+
+		protected function __construct() {
+			$this->sql = rex_sql::factory();
+			$this->sql->setTable($this->table);
+		}
 
 		protected function curlURL($url) {
 			$ch = curl_init();
@@ -29,6 +38,24 @@
 			}
 			
 			return $hashtags;
+		}
+
+		public function entries($obj = false) {
+			$select = $this->sql->select();
+			$arrEntry = [];
+			while($select->hasNext()) {
+				$arrEntry[] = $this->json_decode($select->getRow(),$obj);
+				$select->next();
+			}
+			return $arrEntry;
+		}
+
+		private function json_decode($arrData,$obj = false) {
+			$_arrData = [];
+			foreach($arrData as $key => $value)
+				$_arrData[substr($key,strpos($key,'.')+1)] = @json_decode($value,$obj);
+
+			return $_arrData;
 		}
 	}
 ?>

@@ -3,7 +3,7 @@ CREATE TABLE IF NOT EXISTS `rex_socialhub_facebook` (
  `fid` varchar(100) NOT NULL,
  `message` text NULL,
  `name` varchar(100) NOT NULL,
- `from` text NULL,
+ `author` text NULL,
  `type` varchar(50) NOT NULL,
  `privacy` text NULL,
  `likes` text NULL,
