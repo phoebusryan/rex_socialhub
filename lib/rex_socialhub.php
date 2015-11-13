@@ -40,20 +40,23 @@
 			return $hashtags;
 		}
 
-		public function entries($obj = false) {
+		public function entries($asArray = true) {
 			$select = $this->sql->select();
 			$arrEntry = [];
 			while($select->hasNext()) {
-				$arrEntry[] = $this->json_decode($select->getRow(),$obj);
+				$arrEntry[] = $this->json_decode($select->getRow(),$asArray);
 				$select->next();
 			}
 			return $arrEntry;
 		}
 
-		private function json_decode($arrData,$obj = false) {
+		private function json_decode($arrData,$asArray = true) {
 			$_arrData = [];
 			foreach($arrData as $key => $value)
-				$_arrData[substr($key,strpos($key,'.')+1)] = @json_decode($value,$obj);
+				if(!is_numeric($key)) {
+					$arrValue = @json_decode($value,$asArray);
+					$_arrData[(strpos($key,'.') !== false?substr($key,strpos($key,'.')+1):$key)] = is_array($arrValue) || is_object($arrValue)?$arrValue:$value;
+				}
 
 			return $_arrData;
 		}

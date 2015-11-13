@@ -1,4 +1,5 @@
 <?php
 
 $sh = rex_socialhub_facebook::factory();
-print_r($sh->entries());
+foreach($sh->entries() as $key => $value)
+  echo '<pre>'.print_r($value,1).'</pre><br><br>';

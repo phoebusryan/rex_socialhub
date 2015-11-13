@@ -26,6 +26,7 @@
       }
 
       $Body = json_decode($response->getBody(),1);
+      // print_r($Body);
       foreach($Body['data'] as $key => $fb_post) {
         $newPost = rex_sql::factory();
         $newPost->setTable('rex_socialhub_facebook');
@@ -38,7 +39,7 @@
           $newPost->setValue('message',$fb_post['message']);
           $newPost->setValue('name',$fb_post['from']['name']);
           $newPost->setValue('author',json_encode($fb_post['from']));
-          $newPost->setValue('type',$fb_post['type']);
+          $newPost->setValue('post_type',$fb_post['type']);
           $newPost->setValue('privacy',json_encode($fb_post['privacy']));
           $newPost->setValue('likes',json_encode($fb_post['likes']));
           $newPost->setValue('count_likes',count($fb_post['likes']));
