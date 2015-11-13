@@ -8,6 +8,8 @@ if(rex_post('btn_save', 'string') != '') {
     ['facebook', 'array'],
   ]);
 
+  if(end($pValues['facebook']['page']) == '')
+    $pValues['facebook']['page'] = array_slice($pValues['facebook']['page'],0,-1);
   $this->setConfig($pValues);
   $message = $this->i18n('config_saved_successfull');
 }
