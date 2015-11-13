@@ -1,0 +1,8 @@
+#subpage facebook
+rex_socialhub_facebook = Facebook
+rex_socialhub_facebook_infotext = Lorem Ipsum
+rex_socialhub_facebook_button_save = Speichern
+
+
+#permissions
+perm_general_rex_socialhub[facebook] = Rechte für die Seite 'Facebook'
