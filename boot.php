@@ -6,6 +6,10 @@
 		'subpages'=> []
 	];
 	
+	if(rex::isBackend()) {
+	  rex_view::addCssFile($this->getAssetsUrl('socialhub.css'));
+	}
+
 	$pageConfig['subpages']['main'] = ['title' => $this->i18n('main')];
 	$pageConfig['subpages']['hashtags'] = ['title' => $this->i18n('hashtags')];
 	

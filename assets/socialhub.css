@@ -1,0 +1,15 @@
+.btn-highlight {
+  color: #000;
+  background: #fff;
+  border-color: #ccc;
+}
+.btn-highlight:hover {
+  color: #000;
+  background: #e6e6e6;
+  border-color: #adadad;
+}
+
+.fa-highlight:before,
+.rex-icon-highlight:before {
+  content: "\f006";
+}
