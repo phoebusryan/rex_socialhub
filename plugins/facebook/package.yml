@@ -15,3 +15,4 @@ page:
     subpages:
         index: { title: 'translate:settings' }
         entries: { title: 'translate:entries' }
+        highlights: { title: 'translate:highlights' }
