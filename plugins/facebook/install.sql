@@ -8,6 +8,8 @@ CREATE TABLE IF NOT EXISTS `rex_socialhub_facebook` (
  `privacy` text NULL,
  `likes` text NULL,
  `count_likes` int(11) unsigned NOT NULL,
+ `visible` char(1) NOT NULL DEFAULT '1',
+ `highlight` char(1) NOT NULL DEFAULT '0',
  PRIMARY KEY (`id`),
  KEY `fid` (`fid`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;

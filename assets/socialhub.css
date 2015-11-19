@@ -1,9 +1,11 @@
-.btn-highlight {
+.btn-highlight,
+.btn-highlighted {
   color: #000;
   background: #fff;
   border-color: #ccc;
 }
-.btn-highlight:hover {
+.btn-highlight:hover,
+.btn-highlighted:hover {
   color: #000;
   background: #e6e6e6;
   border-color: #adadad;
@@ -12,4 +14,9 @@
 .fa-highlight:before,
 .rex-icon-highlight:before {
   content: "\f006";
+}
+.fa-highlighted:before,
+.rex-icon-highlighted:before {
+  color: #aaaa00;
+  content: "\f005";
 }

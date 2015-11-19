@@ -40,7 +40,20 @@
 			return $hashtags;
 		}
 
-		public function entries($asArray = true) {
+		public function toggleVisibility() {
+			$this->sql->reset();
+			$this->sql->setQuery("UPDATE ".$this->table." SET visible = CASE WHEN visible = 1 THEN 0 ELSE 1 END WHERE id = ?",array(rex_get('entry')));
+		}
+
+		public function toggleHighlight() {
+			$this->sql->reset();
+			$this->sql->setQuery("UPDATE ".$this->table." SET highlight = CASE WHEN highlight = 1 THEN 0 ELSE 1 END WHERE id = ?",array(rex_get('entry')));
+		}
+
+		public function entries($asArray = true,$where=array()) {
+			$this->sql->reset();
+			if(!empty($where))
+				$this->sql->setWhere($where);
 			$select = $this->sql->select();
 			$arrEntry = [];
 			while($select->hasNext()) {

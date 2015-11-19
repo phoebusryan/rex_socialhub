@@ -1,10 +1,13 @@
-<div class="rex-panel-options">
+<?php
+  $visible = $this->getVar('visible');
+  $highlight = $this->getVar('highlight');
+?><div class="rex-panel-options">
   <div class="btn-group btn-group-xs">
-    <a href="#slice57" class="btn btn-visible" title="Deaktivieren">
-      <i class="rex-icon rex-icon-visible"></i>
+    <a data-state="<?php echo $visible?'visible':'invisible';?>" href="index.php?page=rex_socialhub/facebook/toggle_entry&amp;entry=<?php echo $this->getVar('entry');?>&amp;state=<?php echo $visible?'visible':'invisible';?>" class="btn btn-<?php echo $visible?'visible':'invisible';?>" title="<?php echo $visible?'Deaktivieren':'Aktivieren';?>">
+      <i class="rex-icon rex-icon-<?php echo $visible?'visible':'invisible';?>"></i>
     </a>
-    <a href="#slice57" class="btn btn-highlight" title="Hervorheben">
-      <i class="rex-icon rex-icon-highlight"></i>
+    <a data-state="<?php echo $highlight?'highlighted':'highlight';?>" href="index.php?page=rex_socialhub/facebook/toggle_highlight&amp;entry=<?php echo $this->getVar('entry');?>&amp;state=<?php echo $highlight?'highlighted':'highlight';?>" class="btn btn-<?php echo $highlight?'highlighted':'highlight';?>" title="Hervorheben">
+      <i class="rex-icon rex-icon-<?php echo $highlight?'highlighted':'highlight';?>"></i>
     </a>
   </div>
 </div>

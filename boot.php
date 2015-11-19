@@ -8,6 +8,7 @@
 	
 	if(rex::isBackend()) {
 	  rex_view::addCssFile($this->getAssetsUrl('socialhub.css'));
+	  rex_view::addJsFile($this->getAssetsUrl('socialhub.js'));
 	}
 
 	$pageConfig['subpages']['main'] = ['title' => $this->i18n('main')];

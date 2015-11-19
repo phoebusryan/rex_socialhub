@@ -8,7 +8,10 @@ foreach($sh->entries() as $key => $value) {
   $entry = $fragment->parse('entry.php');
 
   $buttons = new rex_fragment();
-  $buttons = $fragment->parse('buttons.php');
+  $buttons->setVar('visible',$value['visible']);
+  $buttons->setVar('highlight',$value['highlight']);
+  $buttons->setVar('entry',$value['id'],false);
+  $buttons = $buttons->parse('buttons.php');
 
   $fragment = new rex_fragment();
   $fragment->setVar('class', 'info', false);
