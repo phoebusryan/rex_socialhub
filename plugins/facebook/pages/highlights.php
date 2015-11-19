@@ -19,11 +19,11 @@ foreach($sh->entries(true,array('highlight'=>1)) as $key => $value) {
   $fragment->setVar('heading',$buttons,false);
   $fragment->setVar('body', $entry, false);
 
-  $likers = [];
-  foreach($value['likes']['data'] as $key => $liker)
-    $likers[] = '<a href="https://www.facebook.com/'.$liker['id'].'" target="_blank">'.$liker['name'].'</a>';
+  // $likers = [];
+  // foreach($value['likes']['data'] as $key => $liker)
+  //   $likers[] = '<a href="https://www.facebook.com/'.$liker['id'].'" target="_blank">'.$liker['name'].'</a>';
 
-  $fragment->setVar('footer','<p>Likes: '.$value['count_likes'].($value['count_likes'] > 0?' ('.implode(', ',$likers).')':'').'</p>', false);
+  // $fragment->setVar('footer','<p>Likes: '.$value['count_likes'].($value['count_likes'] > 0?' ('.implode(', ',$likers).')':'').'</p>', false);
 
   $sections .= $fragment->parse('core/page/section.php');
 }
