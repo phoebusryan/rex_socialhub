@@ -5,7 +5,7 @@ supportpage: github.com/factorylabs/rex_socialhub, redaxo.org/de/forum
 
 requires:
   packages: 
-    cronjob: '>=5.0.alpna'
+    cronjob: '>=2.0.0-beta1'
 
 page:
     title: 'translate:facebook'
