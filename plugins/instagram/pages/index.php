@@ -32,6 +32,16 @@ $content = $sections = '';
 $Values = $this->getConfig('instagram');
 // print_r($Values);
 
+$fragment = new rex_fragment();
+$fragment->setVar('name', 'rex_socialhub[instagram][client_id]', false);
+$fragment->setVar('value', $Values['client_id'], false);
+$fragment->setVar('label', rex_i18n::msg('rex_socialhub_instagram_client').':', false);
+$fragment->addDirectory($this->getAddon()->getPath());
+$content .= $fragment->parse('form/input.php');
+
+$content .= '<br><br><h3 class="rex-form-aligned">Access-Tokens</h3><p class="rex-form-aligned">Access-Tokens benötigt es nur um Einträge aus bestimmten Instagram-Accounts auszugeben.</p><br>';
+
+
 if(empty($Values['access_tokens']))
   $Values = ['access_tokens'=>['']];
 else $Values['access_tokens'][] = '';
@@ -43,6 +53,8 @@ foreach($Values['access_tokens'] as $key => $value) {
   $fragment->setVar('label', rex_i18n::msg('rex_socialhub_instagram_access_token').' '.($key+1).':', false);
   $fragment->addDirectory($this->getAddon()->getPath());
   $content .= $fragment->parse('form/input.php');
+  if(!empty($Values['accounts'][$value]))
+    $content .= '<div class="rex-form-aligned"><ul style="list-style-type: none; padding:0;"><li>Name: <a href="http://www.instagram.com/'.$Values['accounts'][$value]['username'].'" target="_blank" title="Instagramprofil von '.ucfirst($Values['accounts'][$value]['username']).'">'.ucfirst($Values['accounts'][$value]['username']).'</a></li><li>ID: '.$Values['accounts'][$value]['id'].'</li></div><br>';
 }
 
 $content .= '<p class="rex-form-aligned">Hier den persönlichen Access Token generieren: <a href="http://instagram.pixelunion.net/" target="_blank" title="Access Token Generator">http://instagram.pixelunion.net/</a></p>';
