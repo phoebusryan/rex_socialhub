@@ -6,11 +6,13 @@ supportpage: github.com/factorylabs/rex_socialhub, redaxo.org/de/forum
 requires:
   packages: 
     cronjob: '>=2.0.0-beta1'
-    
+
 page:
     title: 'translate:instagram'
     icon: rex-icon fa-instagram
     perm: rex_socialhub[instagram]
     pjax: false
     subpages:
-        index: { title: 'translate:instagram' }
+        index: { title: 'translate:settings' }
+        entries: { title: 'translate:entries' }
+        highlights: { title: 'translate:highlights' }

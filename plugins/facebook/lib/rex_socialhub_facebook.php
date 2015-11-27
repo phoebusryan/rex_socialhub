@@ -34,19 +34,15 @@
         foreach($Body['data'] as $key => $fb_post) {
           $newPost = rex_sql::factory();
           $newPost->setTable('rex_socialhub_facebook');
-          $newPost->setWhere(array('fid'=>$fb_post['id']));
+          $newPost->setWhere(array('post_id'=>$fb_post['id']));
           $newPost->select();
           if($newPost->getRows() === 0) {
             $newPost->reset();
             $newPost->setTable('rex_socialhub_facebook');
-            $newPost->setValue('fid',$fb_post['id']);
+            $newPost->setValue('post_id',$fb_post['id']);
             $newPost->setValue('message',$fb_post['message']);
             $newPost->setValue('name',$fb_post['from']['name']);
-            $newPost->setValue('author',json_encode($fb_post['from']));
-            $newPost->setValue('post_type',$fb_post['type']);
-            $newPost->setValue('privacy',json_encode($fb_post['privacy']));
-            $newPost->setValue('likes',json_encode($fb_post['likes']));
-            $newPost->setValue('count_likes',count($fb_post['likes']));
+            $newPost->setValue('query',json_encode($fb_post));
 
             try {
               $newPost->insert();
@@ -60,11 +56,11 @@
 
 
     /**
-     * Creates a rex_sql instance.
+     * Creates a rex_socialhub_facebook instance.
      *
      * @param int $DBID
      *
-     * @return static Returns a rex_sql instance
+     * @return static Returns a rex_socialhub_facebook instance
      */
     public static function factory() {
       $class = static::getFactoryClass();

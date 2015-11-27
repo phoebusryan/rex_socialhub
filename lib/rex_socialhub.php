@@ -1,6 +1,7 @@
 <?php
 	abstract class rex_socialhub {
 
+		protected $plugin = '';
 		private $sql = null;
 
     use rex_factory_trait;
@@ -29,8 +30,8 @@
 		
 		/* todo */
 		protected function getHashtags() {
-			$sql = new sql();
-			$result = $sql->get_array('SELECT `hashtag`,`'.$this->plugin.'_next_id` FROM `'.$REX['TABLE_PREFIX'].'socialhub_hashtags` ORDER BY `hashtag` ASC');
+			$this->sql->setTable('rex_socialhub_hashtag');
+			$result = $this->sql->getArray('SELECT `hashtag`,`'.$this->plugin.'_next_id` FROM `'.rex::getTablePrefix().'socialhub_hashtags` ORDER BY `hashtag` ASC');
 			
 			$hashtags = [];
 			foreach($result as $row) {

@@ -5,6 +5,8 @@ rex_socialhub_all = Alle
 #subpage_main
 rex_socialhub_main = Hauptseite
 
+config_saved_successfull = Erfolgreich gespeichert
+
 #subpage_hashtag
 rex_socialhub_hashtags = Hashtags
 rex_socialhub_hashtags_caption = Liste der angelegten Hashtags
