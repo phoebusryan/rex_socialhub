@@ -15,6 +15,7 @@ rex_socialhub_label_name = Name
 
 #subpage entries
 rex_socialhub_entries = Einträge
+rex_socialhub_hastag_entries = Hashtag-Einträge
 rex_socialhub_entries_caption = Liste der gefunden Einträge
 rex_socialhub_column_caption = Caption
 rex_socialhub_column_query = Query

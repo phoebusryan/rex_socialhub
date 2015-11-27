@@ -19,7 +19,7 @@
 		$pageConfig['subpages'][$pluginName] = ['title' => $this->i18n($pluginName)];
 	}
 
-	$pageConfig['subpages']['entries'] = ['title' => $this->i18n('entries')];
+	$pageConfig['subpages']['entries'] = ['title' => $this->i18n('hastag_entries')];
 	
 	$this->setProperty('page', $pageConfig);
 ?>

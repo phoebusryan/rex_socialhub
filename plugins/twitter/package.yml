@@ -6,11 +6,13 @@ supportpage: github.com/factorylabs/rex_socialhub, redaxo.org/de/forum
 requires:
   packages: 
     cronjob: '>=2.0.0-beta1'
-    
+
 page:
     title: 'translate:twitter'
-    perm: rex_socialhub[twitter]
     icon: rex-icon fa-twitter
+    perm: rex_socialhub[twitter]
     pjax: false
     subpages:
-        index: { title: 'translate:twitter' }
+        index: { title: 'translate:settings' }
+        entries: { title: 'translate:entries' }
+        highlights: { title: 'translate:highlights' }

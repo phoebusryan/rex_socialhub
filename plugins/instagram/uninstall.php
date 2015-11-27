@@ -13,7 +13,7 @@ try {
 
 $newCron = rex_sql::factory();
 $newCron->setTable(REX_CRONJOB_TABLE);
-$newCron->setWhere(array('name'=>'Update Hashtags'));
+$newCron->setWhere(array('name'=>'Update Instagram-Hashtags'));
 
 try {
   $newCron->delete();

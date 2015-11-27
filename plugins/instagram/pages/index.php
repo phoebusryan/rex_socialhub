@@ -2,10 +2,9 @@
 
 $message = '';
 
-$RSI = rex_socialhub_instagram::factory();
+$RSHI = rex_socialhub_instagram::factory();
 
 $Values = $this->getConfig('instagram');
-$RSI->token($Values['access_token']);
 
 if(rex_post('btn_save', 'string') != '') {
 
@@ -16,7 +15,7 @@ if(rex_post('btn_save', 'string') != '') {
 	$pValues['instagram']['access_tokens'] = array_filter($pValues['instagram']['access_tokens']);
 	$pValues['instagram']['access_tokens'] = array_unique($pValues['instagram']['access_tokens']);
 	if(!empty($pValues['instagram']['access_tokens'])) {
-		$pValues['instagram']['accounts'] = $RSI->getAccountData($pValues['instagram']['access_tokens']);
+		$pValues['instagram']['accounts'] = $RSHI->getAccountData($pValues['instagram']['access_tokens']);
 		$pValues['instagram']['access_token'] = $pValues['instagram']['access_tokens'][0];
 	} else {
 		$pValues['instagram']['accounts'] = [];

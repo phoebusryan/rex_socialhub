@@ -7,18 +7,12 @@
 
     protected $table = 'rex_socialhub_instagram';
 
-		private $token = '';
 		private $counter = 0;
 
 
     protected function __construct() {
     	$this->plugin = 'instagram';
       parent::__construct();
-    }
-
-    public function token($token = '') {
-    	if(empty($token)) return $this->token;
-    	$this->token = $token;
     }
 
 		public static function cron() {
