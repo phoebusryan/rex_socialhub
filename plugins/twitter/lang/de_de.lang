@@ -6,8 +6,10 @@ rex_socialhub_twitter_button_save = Speichern
 rex_socialhub_general = Allgemein
 rex_socialhub_accounts = Accounts
 
-rex_socialhub_twitter_client = Client ID
+rex_socialhub_twitter_consumer_token = Consumer Token
+rex_socialhub_twitter_secret_token = Consumer Secret Token
 rex_socialhub_twitter_access_token = Access Token
+rex_socialhub_twitter_secret_token = Secret Token
 rex_socialhub_twitter_highlights = Hervorgehoben
 
 rex_socialhub_twitter_account = Account
