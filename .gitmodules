@@ -1,3 +1,6 @@
 [submodule "plugins/twitter/vendor/twitteroauth"]
 	path = plugins/twitter/vendor/twitteroauth
 	url = https://github.com/abraham/twitteroauth
+[submodule "plugins/facebook/vendor/facebook"]
+	path = plugins/facebook/vendor/facebook
+	url = https://github.com/facebook/facebook-php-sdk-v4
