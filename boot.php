@@ -10,6 +10,22 @@
 	  rex_view::addCssFile($this->getAssetsUrl('socialhub.css'));
 	  rex_view::addJsFile($this->getAssetsUrl('socialhub.js'));
 	}
+	if(rex_addon::get('assets')->isAvailable()) {
+	  rex_extension::register('BE_ASSETS',function($ep) {
+	    $Subject = $ep->getSubject()?$ep->getSubject():[];
+	    $Subject[$this->getPackageId()] = [
+	      'files' => [
+	        $this->getPath('assets/socialhub.css'),
+	        $this->getPath('assets/socialhub.js'),
+	      ],
+	      'addon' => $this->getPackageId(),
+	    ];
+	    return $Subject;
+	  });
+	} elseif(rex::isBackend()) {
+	  rex_view::addCssFile($this->getAssetsUrl('socialhub.cssmin.min.css'));
+	  rex_view::addJsFile($this->getAssetsUrl('socialhub.jsmin.min.js'));
+	}
 
 	$pageConfig['subpages']['main'] = ['title' => $this->i18n('main')];
 	$pageConfig['subpages']['hashtags'] = ['title' => $this->i18n('hashtags')];

@@ -21,7 +21,6 @@ if(rex_post('btn_save', 'string') != '') {
 		$pValues['instagram']['accounts'] = [];
 		$pValues['instagram']['access_token'] = 0;
 	}
-		
 
   $this->setConfig($pValues);
   $message = $this->i18n('config_saved_successfull');

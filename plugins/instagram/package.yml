@@ -11,8 +11,8 @@ page:
     title: 'translate:instagram'
     icon: rex-icon fa-instagram
     perm: rex_socialhub[instagram]
-    pjax: false
+    pjax: true
     subpages:
-        index: { title: 'translate:settings' }
-        entries: { title: 'translate:entries' }
-        highlights: { title: 'translate:highlights' }
+        index: { title: 'translate:settings', pjax: true }
+        entries: { title: 'translate:entries', pjax: true }
+        highlights: { title: 'translate:highlights', pjax: true }
