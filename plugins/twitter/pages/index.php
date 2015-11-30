@@ -12,6 +12,12 @@ if(rex_post('btn_save', 'string') != '') {
     ['twitter', 'array'],
   ]);
 
+
+  foreach($pValues['twitter']['accounts'] as $key => $values)
+    $pValues['twitter']['accounts'][$key] = array_filter($values);
+
+  $pValues['twitter']['accounts'] = array_filter($pValues['twitter']['accounts']);
+
   $this->setConfig($pValues);
   $message = $this->i18n('config_saved_successfull');
 }
@@ -19,7 +25,7 @@ if(rex_post('btn_save', 'string') != '') {
 $content = $sections = '';
 
 $Values = $this->getConfig('twitter');
-print_r($Values);
+// print_r($Values);
 
 if(empty($Values['accounts']))
   $Values = ['accounts'=>['']];
@@ -35,8 +41,8 @@ foreach($Values['accounts'] as $key => $value) {
 
 
   $fragment = new rex_fragment();
-  $fragment->setVar('name', 'rex_socialhub[twitter][accounts]['.$key.'][secret_token]', false);
-  $fragment->setVar('value', $value['secret_token'], false);
+  $fragment->setVar('name', 'rex_socialhub[twitter][accounts]['.$key.'][consumer_secret_token]', false);
+  $fragment->setVar('value', $value['consumer_secret_token'], false);
   $fragment->setVar('label', rex_i18n::msg('rex_socialhub_twitter_secret_token').' '.($key+1).':', false);
   $fragment->addDirectory($this->getAddon()->getPath());
   $content .= $fragment->parse('form/input.php');

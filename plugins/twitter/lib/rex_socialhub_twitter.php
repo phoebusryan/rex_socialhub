@@ -9,13 +9,25 @@
 
 
     protected function __construct() {
+      // require_once '/Applications/MAMP/htdocs/redaxo5/redaxo/src/addons/rex_socialhub/plugins/twitter/vendor/twitteroauth/autoload.php';
       $this->plugin = 'twitter';
       parent::__construct();
     }
 
 
     public static function cron() {
+      $Hub = self::factory();
+      $Accounts = rex_config::get('rex_socialhub','twitter');
+      $Accounts = $Accounts['accounts'];
 
+      if(!$Accounts) return;
+
+      foreach($Accounts as $token => $account) {
+        $connection = new Abraham\TwitterOAuth\TwitterOAuth($account['consumer_token'], $account['consumer_secret_token'], $account['access_token'], $account['secret_token']);
+        $response = $connection->get("statuses/user_timeline",['user_id'=>'244714769']);
+
+        print_r($response);
+      }
     }
 
 
