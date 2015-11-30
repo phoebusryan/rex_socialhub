@@ -62,20 +62,62 @@
 
 
     private function getDataByHashtag($hashtag, $nextID = false) {
-
+      $Hub = self::factory();
       $Accounts = rex_config::get('rex_socialhub','twitter');
+      $Accounts = $Accounts['accounts'][0];
 
-      $connection = new TwitterOAuth($Accounts['consumer_token'], $Accounts['consumer_access_token'], $Accounts['access_token'], $Accounts['secret_token']);
+      if(!$Accounts) return;
+
+      $connection = new Abraham\TwitterOAuth\TwitterOAuth($Accounts['consumer_token'], $Accounts['consumer_secret_token'], $Accounts['access_token'], $Accounts['secret_token']);
       if($next_id != 0) {
         $response = $connection->get("search/tweets",['q'=>'#'.$hashtag,'since_id'=>$next_id]);
       } else {
         $response = $connection->get("search/tweets",['q'=>'#'.$hashtag]);
       }
 
-      $response = $this->curlURL($url);
-      $response = json_decode($response);
+      foreach($response->statuses as $data) {
+        $lastId = $data->id;
+        $this->saveHashtagEntry($data,'#'.$hashtag);
+      }
 
-      print_r($response);
+      $sql = rex_sql::factory();
+      $sql->debugsql = 0;
+      $sql->setTable(rex::getTablePrefix().'socialhub_hashtags');
+      $sql->setWhere('hashtag = "'.addslashes($hashtag).'"');
+      $sql->setValue($this->plugin.'_next_id', $lastId);
+      
+      try {
+        $sql->update();
+      } catch (rex_sql_exception $e) {
+        echo rex_view::warning($e->getMessage());
+      }
+    }
+
+    private function saveHashtagEntry($data,$query) {
+
+     if(empty($data->retweeted_status)){
+        $sql = rex_sql::factory();
+        $sql->debugsql = 0;
+        $sql->setTable(rex::getTablePrefix().'socialhub_entries');
+        
+        $sql->setValue('source', $this->plugin);
+        $sql->setValue('source_id', $data->id);
+        $sql->setValue('caption', urlencode($data->text ? addslashes($data->text) : ''));
+        if($data->entities && !empty($data->entities->media)) {
+          $sql->setValue('image', $data->entities->media[0]->media_url);
+        }
+        $sql->setValue('created_time', date('Y-m-d H:i:s',strtotime($data->created_at)));
+        $sql->setValue('user_id', $data->user->id);
+        $sql->setValue('query', '#'.$query);
+        $sql->setValue('visible', ((!empty($data->entities->media)) ? '1' : '0'));
+        
+        try {
+          $sql->insert();
+          $this->counter++;
+        } catch (rex_sql_exception $e) {
+          echo rex_view::warning($e->getMessage());
+        }
+      }
     }
 
 
