@@ -12,17 +12,6 @@ if(rex_post('btn_save', 'string') != '') {
     ['twitter', 'array'],
   ]);
 
-  $pValues['twitter']['access_tokens'] = array_filter($pValues['twitter']['access_tokens']);
-  $pValues['twitter']['access_tokens'] = array_unique($pValues['twitter']['access_tokens']);
-  if(!empty($pValues['twitter']['access_tokens'])) {
-    $pValues['twitter']['accounts'] = $RSHI->getAccountData($pValues['twitter']['access_tokens']);
-    $pValues['twitter']['access_token'] = $pValues['twitter']['access_tokens'][0];
-  } else {
-    $pValues['twitter']['accounts'] = [];
-    $pValues['twitter']['access_token'] = 0;
-  }
-    
-
   $this->setConfig($pValues);
   $message = $this->i18n('config_saved_successfull');
 }
@@ -30,13 +19,13 @@ if(rex_post('btn_save', 'string') != '') {
 $content = $sections = '';
 
 $Values = $this->getConfig('twitter');
-// print_r($Values);
+print_r($Values);
 
-if(empty($Values['access_tokens']))
-  $Values = ['access_tokens'=>['']];
-else $Values['access_tokens'][] = '';
+if(empty($Values['accounts']))
+  $Values = ['accounts'=>['']];
+else $Values['accounts'][] = '';
 
-foreach($Values['access_tokens'] as $key => $value) {
+foreach($Values['accounts'] as $key => $value) {
   $fragment = new rex_fragment();
   $fragment->setVar('name', 'rex_socialhub[twitter][accounts]['.$key.'][consumer_token]', false);
   $fragment->setVar('value', $value['consumer_token'], false);
@@ -67,14 +56,15 @@ foreach($Values['access_tokens'] as $key => $value) {
   $fragment->setVar('label', rex_i18n::msg('rex_socialhub_twitter_secret_token').' '.($key+1).':', false);
   $fragment->addDirectory($this->getAddon()->getPath());
   $content .= $fragment->parse('form/input.php');
+  
+  $fragment = new rex_fragment();
+  $fragment->setVar('class', 'edit', false);
+  $fragment->setVar('title', rex_i18n::msg('rex_socialhub_accounts'));
+  $fragment->setVar('body', $content, false);
+  $sections .= $fragment->parse('core/page/section.php');
+  $content = '';
 }
 
-$fragment = new rex_fragment();
-$fragment->setVar('class', 'edit', false);
-$fragment->setVar('title', rex_i18n::msg('rex_socialhub_accounts'));
-$fragment->setVar('body', $content, false);
-$sections .= $fragment->parse('core/page/section.php');
-$content = '';
 
 
 $formElements = [];
