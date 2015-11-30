@@ -26,7 +26,30 @@
         $connection = new Abraham\TwitterOAuth\TwitterOAuth($account['consumer_token'], $account['consumer_secret_token'], $account['access_token'], $account['secret_token']);
         $response = $connection->get("statuses/user_timeline",['user_id'=>'244714769']);
 
-        print_r($response);
+        foreach($response as $key => $data) {
+          $sql = rex_sql::factory();
+          $sql->setTable($Hub->table);
+          $sql->setWhere(array('post_id'=>$data->id));
+          $sql->select();
+          if($sql->getRows() === 0) {
+            $sql->reset();
+            $sql->setTable($Hub->table);
+            $sql->setValue('post_id', $data->id);
+            $sql->setValue('message', urlencode($data->text));
+            if($data->entities && !empty($data->entities->media)) {
+              $sql->setValue('image', $data->entities->media[0]->media_url);
+            }
+            $sql->setValue('author', $data->user->id);
+            $sql->setValue('query', json_encode($data));
+            $sql->setValue('visible', '1');
+
+            try {
+              $sql->insert();
+            } catch (rex_sql_exception $e) {
+              echo rex_view::warning($e->getMessage());
+            }
+          }
+        }
       }
     }
 

@@ -6,10 +6,6 @@
 		'subpages'=> []
 	];
 	
-	if(rex::isBackend()) {
-	  rex_view::addCssFile($this->getAssetsUrl('socialhub.css'));
-	  rex_view::addJsFile($this->getAssetsUrl('socialhub.js'));
-	}
 	if(rex_addon::get('assets')->isAvailable()) {
 	  rex_extension::register('BE_ASSETS',function($ep) {
 	    $Subject = $ep->getSubject()?$ep->getSubject():[];

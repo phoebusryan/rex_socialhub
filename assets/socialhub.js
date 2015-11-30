@@ -30,7 +30,7 @@ $(document).on('ready pjax:success',function(){
       url: this.href,
       data: {state: state}
     });
-
+    
     if(state == 'visible') {
       this.className = 'btn btn-invisible';
       this.setAttribute('data-state','invisible');
@@ -40,6 +40,7 @@ $(document).on('ready pjax:success',function(){
       this.setAttribute('data-state','visible');
       this.getElementsByTagName('i')[0].className = 'rex-icon rex-icon-visible';
     }
+
   });
 
 });
