@@ -34,3 +34,14 @@ Twitter benötigt eine App, die unter https://apps.twitter.com erstellt werden m
 
 Nach der Erstellung benötigt es `Consumer Key (API Key)`, `Consumer Secret (API Secret)`, `Access Token` und den `Access Token Secret`. Der Zugang zu diesen Einstellungen, sollten nur Admins bekommen.
 
+## @ToDo
+
+- Ausgabe Frontend
+- Ausgabe Backend optimieren
+- Alte Einträge entfernen
+- Ausgabe-Sorieren / Mischen
+
+### Sobald es erforderlich wird:
+
+- Einträge verfassen und hochladen
+- Slices teilen mit Account XY
