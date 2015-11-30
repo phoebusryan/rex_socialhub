@@ -1,4 +1,4 @@
 package: socialhub
 version: '1.0.0alpha1'
-author: Thomas Kaegi Sascha Weidner
-supportpage: github.com/factorylabs/redaxo_socialhub, redaxo.org/de/forum
+author: "Thomas Kaegi, Sascha Weidner"
+supportpage: "github.com/factorylabs/redaxo_socialhub"
