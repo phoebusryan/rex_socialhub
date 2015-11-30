@@ -1,6 +1,6 @@
 <?php
 
-// ALTER TABLE `rex_socialhub_hashtags` ADD `twitter_next_id` BIGINT(100) NOT NULL AFTER `hashtag`;
+// ALTER TABLE `socialhub_hashtags` ADD `twitter_next_id` BIGINT(100) NOT NULL AFTER `hashtag`;
 $fields = [
   'twitter_next_id'=>'BIGINT(100) NOT NULL AFTER `hashtag`',
 ];
@@ -32,7 +32,7 @@ if($newCron->getRows() === 0) {
   $newCron->setValue('name','Update Twitter');
   $newCron->setValue('description','Prüft ob neue Twittereinträge auf den angegebenen Seiten vorhanden sind.');
   $newCron->setValue('type','rex_cronjob_phpcallback');
-  $newCron->setValue('parameters','{"rex_cronjob_phpcallback_callback":"rex_socialhub_twitter::cron()"}');
+  $newCron->setValue('parameters','{"rex_cronjob_phpcallback_callback":"socialhub_twitter::cron()"}');
   $newCron->setValue('interval','|1|h|');
   $newCron->setValue('nexttime','0000-00-00 00:00:00');
   $newCron->setValue('environment','|0|1|');
@@ -60,7 +60,7 @@ if($newCron->getRows() === 0) {
   $newCron->setValue('name','Update Twitter-Hashtags');
   $newCron->setValue('description','Prüft ob neue Hashtags auf Twitter vorhanden sind.');
   $newCron->setValue('type','rex_cronjob_phpcallback');
-  $newCron->setValue('parameters','{"rex_cronjob_phpcallback_callback":"rex_socialhub_twitter::loadHashtags()"}');
+  $newCron->setValue('parameters','{"rex_cronjob_phpcallback_callback":"socialhub_twitter::loadHashtags()"}');
   $newCron->setValue('interval','|1|h|');
   $newCron->setValue('nexttime','0000-00-00 00:00:00');
   $newCron->setValue('environment','|0|1|');

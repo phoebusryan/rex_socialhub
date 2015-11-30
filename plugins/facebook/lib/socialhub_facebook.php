@@ -1,6 +1,6 @@
 <?php
 
-	class rex_socialhub_facebook extends rex_socialhub {
+	class socialhub_facebook extends socialhub {
 
     protected $table = 'rex_socialhub_facebook';
 
@@ -15,7 +15,7 @@
         'default_graph_version' => 'v2.2',
       ]);
 
-      $Config = rex_config::get('rex_socialhub');
+      $Config = rex_config::get('socialhub');
       $Config = $Config['facebook']['page'];
 
       foreach($Config as $pKey => $page) {
@@ -33,12 +33,12 @@
         // print_r($Body);
         foreach($Body['data'] as $key => $fb_post) {
           $newPost = rex_sql::factory();
-          $newPost->setTable('rex_socialhub_facebook');
+          $newPost->setTable('socialhub_facebook');
           $newPost->setWhere(array('post_id'=>$fb_post['id']));
           $newPost->select();
           if($newPost->getRows() === 0) {
             $newPost->reset();
-            $newPost->setTable('rex_socialhub_facebook');
+            $newPost->setTable('socialhub_facebook');
             $newPost->setValue('post_id',$fb_post['id']);
             $newPost->setValue('message',$fb_post['message']);
             $newPost->setValue('name',$fb_post['from']['name']);
@@ -56,11 +56,11 @@
 
 
     /**
-     * Creates a rex_socialhub_facebook instance.
+     * Creates a socialhub_facebook instance.
      *
      * @param int $DBID
      *
-     * @return static Returns a rex_socialhub_facebook instance
+     * @return static Returns a socialhub_facebook instance
      */
     public static function factory() {
       $class = static::getFactoryClass();

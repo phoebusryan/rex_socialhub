@@ -1,7 +1,7 @@
-package: rex_socialhub/instagram
-version: '1.0.0'
-author: Thomas Kaegi
-supportpage: github.com/factorylabs/rex_socialhub, redaxo.org/de/forum
+package: socialhub/instagram
+version: '1.0.0alpha1'
+author: Thomas Kaegi Sascha Weidner
+supportpage: github.com/factorylabs/redaxo_socialhub, redaxo.org/de/forum
 
 requires:
   packages: 
@@ -10,7 +10,7 @@ requires:
 page:
     title: 'translate:instagram'
     icon: rex-icon fa-instagram
-    perm: rex_socialhub[instagram]
+    perm: socialhub[instagram]
     pjax: true
     subpages:
         index: { title: 'translate:settings', pjax: true }

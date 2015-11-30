@@ -45,7 +45,7 @@
 			$select->setAttribute('class', 'form-control');
 			$select->addOption($this->i18n('all'), 'all');
 			
-			$plugins = rex_plugin::getRegisteredPlugins('rex_socialhub');
+			$plugins = rex_plugin::getRegisteredPlugins('socialhub');
 			foreach ($plugins as $pluginName => $plugin) {
 				$select->addOption($this->i18n($pluginName), $pluginName);
 			}
@@ -190,7 +190,7 @@
 	$content = $list->get();
 	
 	$fragment = new rex_fragment();
-	$fragment->setVar('title', $this->i18n('rex_socialhub_entries_caption'), false);
+	$fragment->setVar('title', $this->i18n('socialhub_entries_caption'), false);
 	$fragment->setVar('content', $content, false);
 	$content = $fragment->parse('core/page/section.php');
 	

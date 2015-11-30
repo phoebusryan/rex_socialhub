@@ -1,7 +1,7 @@
 <?php
 
 $sections = '';
-$sh = rex_socialhub_twitter::factory();
+$sh = socialhub_twitter::factory();
 foreach($sh->entries(true,array('highlight'=>1)) as $key => $value) {
   $fragment = new rex_fragment();
   $fragment->setVar('values',$value);

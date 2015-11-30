@@ -1,6 +1,6 @@
 <?php
 
-  class rex_socialhub_twitter extends rex_socialhub {
+  class socialhub_twitter extends socialhub {
 
     public static $url = 'https://twitter.com';
     protected $table = 'rex_socialhub_twitter';
@@ -9,7 +9,7 @@
 
 
     protected function __construct() {
-      // require_once '/Applications/MAMP/htdocs/redaxo5/redaxo/src/addons/rex_socialhub/plugins/twitter/vendor/twitteroauth/autoload.php';
+      // require_once '/Applications/MAMP/htdocs/redaxo5/redaxo/src/addons/socialhub/plugins/twitter/vendor/twitteroauth/autoload.php';
       $this->plugin = 'twitter';
       parent::__construct();
     }
@@ -17,7 +17,7 @@
 
     public static function cron() {
       $Hub = self::factory();
-      $Accounts = rex_config::get('rex_socialhub','twitter');
+      $Accounts = rex_config::get('socialhub','twitter');
       $Accounts = $Accounts['accounts'];
 
       if(!$Accounts) return;
@@ -63,7 +63,7 @@
 
     private function getDataByHashtag($hashtag, $nextID = false) {
       $Hub = self::factory();
-      $Accounts = rex_config::get('rex_socialhub','twitter');
+      $Accounts = rex_config::get('socialhub','twitter');
       $Accounts = $Accounts['accounts'][0];
 
       if(!$Accounts) return;
@@ -122,11 +122,11 @@
 
 
     /**
-     * Creates a rex_socialhub_twitter instance.
+     * Creates a socialhub_twitter instance.
      *
      * @param int $DBID
      *
-     * @return static Returns a rex_socialhub_twitter instance
+     * @return static Returns a socialhub_twitter instance
      */
     public static function factory() {
       $class = static::getFactoryClass();

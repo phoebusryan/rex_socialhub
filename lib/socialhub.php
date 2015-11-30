@@ -1,5 +1,5 @@
 <?php
-	abstract class rex_socialhub {
+	abstract class socialhub {
 
 		protected $plugin = '';
 		private $sql = null;
@@ -30,7 +30,7 @@
 		
 		/* todo */
 		protected function getHashtags() {
-			$this->sql->setTable('rex_socialhub_hashtag');
+			$this->sql->setTable(rex::getTablePrefix().'socialhub_hashtag');
 			$result = $this->sql->getArray('SELECT `hashtag`,`'.$this->plugin.'_next_id` FROM `'.rex::getTablePrefix().'socialhub_hashtags` ORDER BY `hashtag` ASC');
 			
 			$hashtags = [];

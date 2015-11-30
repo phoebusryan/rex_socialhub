@@ -2,13 +2,13 @@
 
 $message = '';
 
-$RSHI = rex_socialhub_instagram::factory();
+$RSHI = socialhub_instagram::factory();
 
 $Values = $this->getConfig('instagram');
 
 if(rex_post('btn_save', 'string') != '') {
 
-  $pValues = rex_post('rex_socialhub', [
+  $pValues = rex_post('socialhub', [
     ['instagram', 'array'],
   ]);
 
@@ -32,9 +32,9 @@ $Values = $this->getConfig('instagram');
 // print_r($Values);
 
 $fragment = new rex_fragment();
-$fragment->setVar('name', 'rex_socialhub[instagram][client_id]', false);
+$fragment->setVar('name', 'socialhub[instagram][client_id]', false);
 $fragment->setVar('value', $Values['client_id'], false);
-$fragment->setVar('label', rex_i18n::msg('rex_socialhub_instagram_client').':', false);
+$fragment->setVar('label', rex_i18n::msg('socialhub_instagram_client').':', false);
 $fragment->addDirectory($this->getAddon()->getPath());
 $content .= $fragment->parse('form/input.php');
 
@@ -47,9 +47,9 @@ else $Values['access_tokens'][] = '';
 
 foreach($Values['access_tokens'] as $key => $value) {
   $fragment = new rex_fragment();
-  $fragment->setVar('name', 'rex_socialhub[instagram][access_tokens][]', false);
+  $fragment->setVar('name', 'socialhub[instagram][access_tokens][]', false);
   $fragment->setVar('value', $value, false);
-  $fragment->setVar('label', rex_i18n::msg('rex_socialhub_instagram_access_token').' '.($key+1).':', false);
+  $fragment->setVar('label', rex_i18n::msg('socialhub_instagram_access_token').' '.($key+1).':', false);
   $fragment->addDirectory($this->getAddon()->getPath());
   $content .= $fragment->parse('form/input.php');
   if(!empty($Values['accounts'][$value]))
@@ -60,7 +60,7 @@ $content .= '<p class="rex-form-aligned">Hier den persönlichen Access Token gen
 
 $fragment = new rex_fragment();
 $fragment->setVar('class', 'edit', false);
-$fragment->setVar('title', rex_i18n::msg('rex_socialhub_accounts'));
+$fragment->setVar('title', rex_i18n::msg('socialhub_accounts'));
 $fragment->setVar('body', $content, false);
 $sections .= $fragment->parse('core/page/section.php');
 $content = '';

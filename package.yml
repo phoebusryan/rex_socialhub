@@ -1,4 +1,4 @@
-package: rex_socialhub
-version: '1.0.0'
-author: Thomas Kaegi
-supportpage: github.com/phoebusryan/rex_socialhub, redaxo.org/de/forum
+package: socialhub
+version: '1.0.0alpha1'
+author: Thomas Kaegi Sascha Weidner
+supportpage: github.com/factorylabs/redaxo_socialhub, redaxo.org/de/forum

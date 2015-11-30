@@ -1,6 +1,6 @@
 <?php
 
-// ALTER TABLE `rex_socialhub_hashtags` ADD `instagram_next_id` BIGINT(100) NOT NULL AFTER `hashtag`;
+// ALTER TABLE `socialhub_hashtags` ADD `instagram_next_id` BIGINT(100) NOT NULL AFTER `hashtag`;
 $fields = [
   'instagram_next_id'=>'BIGINT(100) NOT NULL AFTER `hashtag`',
 ];
@@ -32,7 +32,7 @@ if($newCron->getRows() === 0) {
   $newCron->setValue('name','Update Instagram');
   $newCron->setValue('description','Prüft ob neue Instagrameinträge auf den angegebenen Seiten vorhanden sind.');
   $newCron->setValue('type','rex_cronjob_phpcallback');
-  $newCron->setValue('parameters','{"rex_cronjob_phpcallback_callback":"rex_socialhub_instagram::cron()"}');
+  $newCron->setValue('parameters','{"rex_cronjob_phpcallback_callback":"socialhub_instagram::cron()"}');
   $newCron->setValue('interval','|1|h|');
   $newCron->setValue('nexttime','0000-00-00 00:00:00');
   $newCron->setValue('environment','|0|1|');
@@ -60,7 +60,7 @@ if($newCron->getRows() === 0) {
   $newCron->setValue('name','Update Instagram-Hashtags');
   $newCron->setValue('description','Prüft ob neue Hashtags auf Instagram vorhanden sind.');
   $newCron->setValue('type','rex_cronjob_phpcallback');
-  $newCron->setValue('parameters','{"rex_cronjob_phpcallback_callback":"rex_socialhub_instagram::loadHashtags()"}');
+  $newCron->setValue('parameters','{"rex_cronjob_phpcallback_callback":"socialhub_instagram::loadHashtags()"}');
   $newCron->setValue('interval','|1|h|');
   $newCron->setValue('nexttime','0000-00-00 00:00:00');
   $newCron->setValue('environment','|0|1|');

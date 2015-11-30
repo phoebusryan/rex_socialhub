@@ -4,7 +4,7 @@ $message = '';
 
 if(rex_post('btn_save', 'string') != '') {
 
-  $pValues = rex_post('rex_socialhub', [
+  $pValues = rex_post('socialhub', [
     ['facebook', 'array'],
   ]);
 
@@ -23,9 +23,9 @@ else $Values['page'][] = '';
 
 foreach($Values['page'] as $key => $value) {
   $fragment = new rex_fragment();
-  $fragment->setVar('name', 'rex_socialhub[facebook][page][]', false);
+  $fragment->setVar('name', 'socialhub[facebook][page][]', false);
   $fragment->setVar('value', $value, false);
-  $fragment->setVar('label', rex_i18n::msg('rex_socialhub_facebook_page').' '.($key+1).'.)', false);
+  $fragment->setVar('label', rex_i18n::msg('socialhub_facebook_page').' '.($key+1).'.)', false);
   $fragment->addDirectory($this->getAddon()->getPath());
   $content .= $fragment->parse('form/input.php');
 }

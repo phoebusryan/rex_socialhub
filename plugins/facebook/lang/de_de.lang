@@ -1,11 +1,11 @@
 #subpage facebook
-rex_socialhub_facebook = Facebook
-rex_socialhub_facebook_infotext = Lorem Ipsum
-rex_socialhub_facebook_button_save = Speichern
+socialhub_facebook = Facebook
+socialhub_facebook_infotext = Lorem Ipsum
+socialhub_facebook_button_save = Speichern
 
-rex_socialhub_facebook_page = Facebookseite
+socialhub_facebook_page = Facebookseite
 
-rex_socialhub_facebook_highlights = Hervorgehoben
+socialhub_facebook_highlights = Hervorgehoben
 
 #permissions
-perm_general_rex_socialhub[facebook] = Rechte für die Seite 'Facebook'
+perm_general_socialhub[facebook] = Rechte für die Seite 'Facebook'

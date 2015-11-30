@@ -1,7 +1,7 @@
-package: rex_socialhub/twitter
-version: '1.0.0'
-author: Thomas Kaegi
-supportpage: github.com/factorylabs/rex_socialhub, redaxo.org/de/forum
+package: socialhub/twitter
+version: '1.0.0alpha1'
+author: Thomas Kaegi Sascha Weidner
+supportpage: github.com/factorylabs/redaxo_socialhub, redaxo.org/de/forum
 
 requires:
   packages: 
@@ -10,7 +10,7 @@ requires:
 page:
     title: 'translate:twitter'
     icon: rex-icon fa-twitter
-    perm: rex_socialhub[twitter]
+    perm: socialhub[twitter]
     pjax: false
     subpages:
         index: { title: 'translate:settings' }

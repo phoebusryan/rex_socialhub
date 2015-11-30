@@ -1,6 +1,6 @@
 <?php
 
-	class rex_socialhub_instagram extends rex_socialhub {
+	class socialhub_instagram extends socialhub {
 
 		public static $url = 'https://instagram.com';
 		public static $post_dir = '/p/';
@@ -17,7 +17,7 @@
 
 		public static function cron() {
 			$Hub = self::factory();
-			$Accounts = rex_config::get('rex_socialhub','instagram');
+			$Accounts = rex_config::get('socialhub','instagram');
 			$Accounts = $Accounts['accounts'];
 
 			if(!$Accounts) return;
@@ -58,7 +58,7 @@
 		}
 		
 		private function getDataByHashtag($hashtag, $nextID = false) {
-			$Token = rex_config::get('rex_socialhub','instagram');
+			$Token = rex_config::get('socialhub','instagram');
 			$Token = $Token['access_token'];
 			if(!$Token) return;
 
@@ -136,11 +136,11 @@
 
 
     /**
-     * Creates a rex_socialhub_instagram instance.
+     * Creates a socialhub_instagram instance.
      *
      * @param int $DBID
      *
-     * @return static Returns a rex_socialhub_instagram instance
+     * @return static Returns a socialhub_instagram instance
      */
     public static function factory() {
       $class = static::getFactoryClass();

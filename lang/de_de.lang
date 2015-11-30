@@ -1,38 +1,38 @@
 ##Allgemein
-rex_socialhub_title = Socialhub
-rex_socialhub_all = Alle
+socialhub_title = Socialhub
+socialhub_all = Alle
 
 #subpage_main
-rex_socialhub_main = Hauptseite
+socialhub_main = Hauptseite
 
 config_saved_successfull = Erfolgreich gespeichert
 
 #subpage_hashtag
-rex_socialhub_hashtags = Hashtags
-rex_socialhub_hashtags_caption = Liste der angelegten Hashtags
-rex_socialhub_column_hashtag = Hashtag
-rex_socialhub_label_name = Name
+socialhub_hashtags = Hashtags
+socialhub_hashtags_caption = Liste der angelegten Hashtags
+socialhub_column_hashtag = Hashtag
+socialhub_label_name = Name
 
 #subpage entries
-rex_socialhub_entries = Einträge
-rex_socialhub_hastag_entries = Hashtag-Einträge
-rex_socialhub_entries_caption = Liste der gefunden Einträge
-rex_socialhub_column_caption = Caption
-rex_socialhub_column_query = Query
-rex_socialhub_label_source = Quelle
-rex_socialhub_label_visible = Sichtbar
-rex_socialhub_label_hashtag = Hashtag
-rex_socialhub_label_keyword = Keyword
-rex_socialhub_label_status = Status
-rex_socialhub_button_filter = filtern
-rex_socialhub_button_save = filtern
+socialhub_entries = Einträge
+socialhub_hastag_entries = Hashtag-Einträge
+socialhub_entries_caption = Liste der gefunden Einträge
+socialhub_column_caption = Caption
+socialhub_column_query = Query
+socialhub_label_source = Quelle
+socialhub_label_visible = Sichtbar
+socialhub_label_hashtag = Hashtag
+socialhub_label_keyword = Keyword
+socialhub_label_status = Status
+socialhub_button_filter = filtern
+socialhub_button_save = filtern
 
 #general
-rex_socialhub_config_save = Einstellungen speichern
-rex_socialhub_config_saved = Einstellungen wurden gespeichert!
-rex_socialhub_functions = Funktionen
+socialhub_config_save = Einstellungen speichern
+socialhub_config_saved = Einstellungen wurden gespeichert!
+socialhub_functions = Funktionen
 
 #permissions
-perm_general_rex_socialhub[] = Rechte für Socialhub-Addon
-perm_general_rex_socialhub[hashtag] = Rechte für die Seite 'Hashtag'
-perm_general_rex_socialhub[entries] = Rechte für die Seite 'Einträge'
+perm_general_socialhub[] = Rechte für Socialhub-Addon
+perm_general_socialhub[hashtag] = Rechte für die Seite 'Hashtag'
+perm_general_socialhub[entries] = Rechte für die Seite 'Einträge'

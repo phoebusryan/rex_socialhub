@@ -12,7 +12,7 @@ if($newCron->getRows() === 0) {
   $newCron->setValue('name','Update Facebook');
   $newCron->setValue('description','Prüft ob neue Facebookeinträge auf den angegebenen Seiten vorhanden sind.');
   $newCron->setValue('type','rex_cronjob_phpcallback');
-  $newCron->setValue('parameters','{"rex_cronjob_phpcallback_callback":"rex_socialhub_facebook::cron()"}');
+  $newCron->setValue('parameters','{"rex_cronjob_phpcallback_callback":"socialhub_facebook::cron()"}');
   $newCron->setValue('interval','|1|h|');
   $newCron->setValue('nexttime','0000-00-00 00:00:00');
   $newCron->setValue('environment','|0|1|');

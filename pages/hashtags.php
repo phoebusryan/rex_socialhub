@@ -15,7 +15,7 @@
 		$list->setColumnParams($thIcon, ['func' => 'edit', 'id' => '###id###']);
 		
 		// functions column spans 2 data-columns
-		$funcs = rex_i18n::msg('rex_socialhub_functions');
+		$funcs = rex_i18n::msg('socialhub_functions');
 		
 		$list->addColumn($funcs, '<i class="rex-icon rex-icon-edit"></i> '.rex_i18n::msg('edit'), -1, ['<th class="rex-table-action" colspan="2">###VALUE###</th>', '<td class="rex-table-action">###VALUE###</td>']);
 		$list->setColumnParams($funcs, ['id' => '###id###', 'func' => 'edit']);

@@ -1,7 +1,7 @@
 <?php
 
 $sections = '';
-$sh = rex_socialhub_facebook::factory();
+$sh = socialhub_facebook::factory();
 foreach($sh->entries() as $key => $value) {
   $fragment = new rex_fragment();
   $fragment->setVar('values',$value);
