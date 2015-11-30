@@ -3,3 +3,34 @@
 Lädt die Timelines von Facebook, Twitter und Instagram in die Redaxo-Datenbank. Twitter und Instagram können zusätzlich Hashtags suchen und in die Datenbank speichern.
 
 Facebook hat keine Hashtag-API mehr. Daher wird dieses Feature nicht eingebaut.
+
+## Installation
+
+Socialhub benötigt Plugins damit es funktionieren kann. Jedes Plugin fügt Cronjobs hinzu, die von den jeweiligen Plattformen Daten laden und in Redaxo speichern.
+
+Alle Einträge können aktiviert/deaktiviert bzw. hervorgehoben werden. Für einige Plattformen kann auch eine Hashtag-Suche aktiviert werden.
+
+## Hub
+
+> In der alpha-Version ist es noch nicht möglich, die Daten auf der Webseite auszugeben.
+
+### Facebook
+
+Facebook benötigt lediglich eine öffentlich zugängliche Seite. Danach werden alle Posts der Seite geladen.
+
+### Instagram
+
+#### Client ID
+
+Die Client ID ist mindestens nötig, um Hashtags suchen zu können. Hierzu muss eine App in Instagram erstellt, oder eine ID von einer vorhandenen App eingetragen werden.
+
+#### Access Token
+
+Der Access Token wird benötigt, um die Einträge von Profilen zu laden. Access Token können z.B. hier erstellt werden: http://instagram.pixelunion.net/. Der Access Token wird für den Account erstellt mit dem der Benutzer sich einloggt bei der Generierung.
+
+### Twitter
+
+Twitter benötigt eine App, die unter https://apps.twitter.com erstellt werden muss. Es kann eine bereits verwendete App genutzt werden. Um eine App erstellen zu können, muss der Entwickler seine Mobile-Nummer registrieren.
+
+Nach der Erstellung benötigt es `Consumer Key (API Key)`, `Consumer Secret (API Secret)`, `Access Token` und den `Access Token Secret`. Der Zugang zu diesen Einstellungen, sollten nur Admins bekommen.
+
