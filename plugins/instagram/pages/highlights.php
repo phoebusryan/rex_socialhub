@@ -1,7 +1,7 @@
 <?php
 
 $sections = '';
-$sh = rex_socialhub_instagram::factory();
+$sh = socialhub_instagram::factory();
 foreach($sh->entries(true,array('highlight'=>1)) as $key => $value) {
   $fragment = new rex_fragment();
   $fragment->setVar('values',$value);
