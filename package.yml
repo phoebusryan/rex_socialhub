@@ -2,3 +2,19 @@ package: socialhub
 version: '1.0.0alpha1'
 author: "Thomas Kaegi, Sascha Weidner"
 supportpage: "github.com/factorylabs/redaxo_socialhub"
+
+page:
+  title: 'translate:title'
+  perm: socialhub[]
+  icon: rex-icon fa-share-alt
+  subpages:
+    hashtags:
+      title: 'translate:hashtags'
+      subpages:
+        hashtags:
+          title: 'translate:hashtags'
+          perm: socialhub[hashtags]
+        entries:
+          title: 'translate:entries'
+          perm: socialhub[entries]
+    help: { title: 'translate:help'}

@@ -1,10 +1,4 @@
 <?php
-	$pageConfig = [
-		'title' => $this->i18n('title'),
-		'perm' => 'socialhub[]',
-		'icon' => 'rex-icon fa-share-alt',
-		'subpages'=> []
-	];
 	
 	if(rex_addon::get('assets')->isAvailable()) {
 	  rex_extension::register('BE_ASSETS',function($ep) {
@@ -23,15 +17,17 @@
 	  rex_view::addJsFile($this->getAssetsUrl('socialhub.jsmin.min.js'));
 	}
 
-	$pageConfig['subpages']['main'] = ['title' => $this->i18n('main')];
-	$pageConfig['subpages']['hashtags'] = ['title' => $this->i18n('hashtags')];
-	
-	$plugins = rex_plugin::getRegisteredPlugins('socialhub');
-	foreach ($plugins as $pluginName => $plugin) {
-		$pageConfig['subpages'][$pluginName] = ['title' => $this->i18n($pluginName)];
-	}
+	$page = $this->getProperty('page');
 
-	$pageConfig['subpages']['entries'] = ['title' => $this->i18n('hastag_entries')];
-	
-	$this->setProperty('page', $pageConfig);
+	$Hashtags = false;
+	$Plugins = $this->getAvailablePlugins();
+	foreach($Plugins as $pluginName => $data) {
+		if($data->hasProperty('hashtags'))
+			$Hashtags = true;
+		$page['subpages'][$pluginName] = ['title' => $this->i18n($pluginName)];
+	}
+	if(!$Hashtags)
+		unset($page['subpages']['hashtags']);
+
+	$this->setProperty('page', $page);
 ?>

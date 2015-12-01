@@ -33,7 +33,7 @@ foreach($Values['page'] as $key => $value) {
 
 $fragment = new rex_fragment();
 $fragment->setVar('class', 'edit', false);
-$fragment->setVar('title', rex_i18n::msg('slice_ui_general'));
+$fragment->setVar('title', rex_i18n::msg('socialhub_general'));
 $fragment->setVar('body', $content, false);
 $sections .= $fragment->parse('core/page/section.php');
 $content = '';

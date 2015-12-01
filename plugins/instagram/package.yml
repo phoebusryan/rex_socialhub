@@ -16,3 +16,5 @@ page:
         index: { title: 'translate:settings', pjax: true }
         entries: { title: 'translate:entries', pjax: true }
         highlights: { title: 'translate:highlights', pjax: true }
+
+hashtags: true

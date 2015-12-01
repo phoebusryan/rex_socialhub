@@ -14,6 +14,7 @@ socialhub_column_hashtag = Hashtag
 socialhub_label_name = Name
 
 #subpage entries
+socialhub_help = Hilfe
 socialhub_entries = Einträge
 socialhub_hastag_entries = Hashtag-Einträge
 socialhub_entries_caption = Liste der gefunden Einträge
