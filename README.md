@@ -10,9 +10,47 @@ Socialhub benötigt Plugins damit es funktionieren kann. Jedes Plugin fügt Cron
 
 Alle Einträge können aktiviert/deaktiviert bzw. hervorgehoben werden. Für einige Plattformen kann auch eine Hashtag-Suche aktiviert werden.
 
-## Hub
+## Frontend
 
-> In der alpha-Version ist es noch nicht möglich, die Daten auf der Webseite auszugeben.
+Die Ausgabe der Einträge im Frontend funktioniert über REX_SOCIAL[]. Dabei können folgende Werte übermittelt werden:
+
+<table width="100%">
+	<tr>
+		<th>Option = Default</th>
+		<th>Mögliche Werte</th>
+		<th>Beschreibung</th>
+	</tr>
+	<tr>
+		<td>type=timeline</td>
+		<td>timeline | hashtags</td>
+		<td>Definiert welche Einträge geladen werden sollen</td>
+	</tr>
+	<tr>
+		<td>template=false</td>
+		<td>false | true</td>
+		<td>Soll das Grid-Template geladen werden? False = wird geladen.</td>
+	</tr>
+	<tr>
+		<td>from = null</td>
+		<td>twitter,facebook,instagram,other_plugins</td>
+		<td>Lädt Einträge für die jeweiligen Plattformen. Die Plattformen müssen kommagetrent notiert werden</td>
+	</tr>
+	<tr>
+		<td>limit = 0</td>
+		<td>[0-9]+</td>
+		<td>Ein Limit von 10 zeigt die 10 neuesten Einträge an.</td>
+	</tr>
+</table>
+
+### Ohne Grid laden
+
+```
+<div id="own_grid">
+	REX_SOCIAL[type=hashtags limit=50 from=twitter,instagram template=1]
+</div>
+```
+
+## Hub
 
 ### Facebook
 
