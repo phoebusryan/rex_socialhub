@@ -62,9 +62,11 @@ class rex_var_social extends rex_var {
       break;
     }
 
-    $fragment = new rex_fragment();
-    $fragment->setVar('body',$entry,false);
-    $entry = $fragment->parse('frontend/grid.php');
+    if(!empty($Template)) {
+      $fragment = new rex_fragment();
+      $fragment->setVar('body',$entry,false);
+      $entry = $fragment->parse('frontend/grid.php');
+    }
 
     return self::quote($entry);
   }

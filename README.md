@@ -36,7 +36,7 @@ Nach der Erstellung benötigt es `Consumer Key (API Key)`, `Consumer Secret (API
 
 ## @ToDo
 
-- Ausgabe Frontend
+- Ausgabe Frontend optimieren
 - Ausgabe Backend optimieren
 - Alte Einträge entfernen
 - Ausgabe-Sorieren / Mischen
