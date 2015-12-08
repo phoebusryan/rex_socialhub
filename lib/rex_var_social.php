@@ -4,17 +4,16 @@ class rex_var_social extends rex_var {
   
   protected function getOutput() {
 
-    $Type = $this->getArg('type', 0, true);
-    $From = $this->getArg('from', 0, true);
-    $Template = $this->getArg('template', 0, true);
+    $Type = $this->getArg('type', '', true);
+    $From = $this->getArg('from', '', true);
+    $Template = $this->getArg('template', '', true);
 
     $Limit = (int)$this->getArg('limit', 0, true);
-
-    $sql = rex_sql::factory();
 
     $entry = '';
     switch($Type) {
       case 'hashtags':
+        $sql = rex_sql::factory();
         $sql->setTable(rex::getTablePrefix().'socialhub_entries');
         if(!empty($From)) {
           $From = str_replace(' ','',$From);
@@ -50,15 +49,21 @@ class rex_var_social extends rex_var {
           }
       break;
       default:
+        if(empty($From)) {
+          $From = [];
+          $Plugins = rex_addon::get('socialhub')->getAvailablePlugins();
+          foreach($Plugins as $name => $plugin)
+            $From[] = $name;
+        }
         if(!empty($From)) {
-          $From = explode(',',$From);
+          if(!is_array($From))
+            $From = explode(',',$From);
           foreach($From as $classPart) {
-            $Class = 'Socialhub'.ucfirst($classPart);
-            $Class = new $Class();
+            $Class = 'socialhub_'.$classPart;
+            $Class = $Class::factory();
             $entry .= $Class->timeline();
           }
         }
-        $sql->setTable(rex::getTablePrefix().'socialhub_hashtag');
       break;
     }
 
@@ -68,6 +73,6 @@ class rex_var_social extends rex_var {
       $entry = $fragment->parse('frontend/grid.php');
     }
 
-    return self::quote($entry);
+    return self::quote($Type.' -- '.$entry);
   }
 }

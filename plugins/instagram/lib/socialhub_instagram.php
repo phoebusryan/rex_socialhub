@@ -16,7 +16,31 @@
     }
 
     public function timeline() {
-      
+      $sql = rex_sql::factory();
+      $sql->setTable($this->table);
+      $sql->select();
+      $entry = '';
+      while($sql->hasNext()) {
+
+        $caption = urldecode($sql->getValue('message'));
+        $caption = preg_replace('/((https*|www\.)[^\s]+)/is','<a href="$1" target="_blank" title="link to $1">$1</a>',$caption);
+        $caption = preg_replace('/\#([0-9a-zA-Z_\-]+)/is','<a href="'.(self::$search_url).'$1" target="_blank" title="Hashtag-Suche auf '.ucfirst($sql->getValue('source')).': '.self::$search_url.'$1">#$1</a>',$caption);
+
+        $fragment = new rex_fragment();
+        $fragment->setVar('id',$sql->getValue('id')); 
+        $fragment->setVar('visible',$sql->getValue('visible'));
+        $fragment->setVar('highlight',$sql->getValue('highlight'));
+        $fragment->setVar('source',$this->plugin); 
+        $fragment->setVar('source_id',$sql->getValue('post_id'));
+        $fragment->setVar('caption',$caption,false);
+        $fragment->setVar('image',$sql->getValue('image'));
+
+        $entry .= $fragment->parse('frontend/hastags.php');
+
+        $sql->next();
+      }
+
+      return $entry;
     }
 
     public function findBy() {
