@@ -6,6 +6,8 @@
 
     use rex_factory_trait;
 
+		abstract public function timeline();
+		abstract public function findBy();
 		abstract public static function cron();
 
 		protected function __construct() {

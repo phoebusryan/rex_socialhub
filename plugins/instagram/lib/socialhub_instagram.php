@@ -4,16 +4,25 @@
 
 		public static $url = 'https://instagram.com';
 		public static $post_dir = '/p/';
+    public static $search_url = 'https://www.instagram.com/explore/tags/';
 
     protected $table = 'rex_socialhub_instagram';
 
 		private $counter = 0;
 
-
     protected function __construct() {
     	$this->plugin = 'instagram';
       parent::__construct();
     }
+
+    public function timeline() {
+      
+    }
+
+    public function findBy() {
+      
+    }
+    
 
 		public static function cron() {
 			$Hub = self::factory();

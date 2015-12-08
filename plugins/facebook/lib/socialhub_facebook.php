@@ -8,6 +8,15 @@
       parent::__construct();
     }
 
+    public function timeline() {
+      return 'TIMELINE FB<br>';
+    }
+
+    public function findBy() {
+      
+    }
+
+
 		public static function cron() {
       $fb = new Facebook\Facebook([
         'app_id' => '1621100048122788',
@@ -33,12 +42,12 @@
         // print_r($Body);
         foreach($Body['data'] as $key => $fb_post) {
           $newPost = rex_sql::factory();
-          $newPost->setTable('socialhub_facebook');
+          $newPost->setTable(rex::getTablePrefix().'socialhub_facebook');
           $newPost->setWhere(array('post_id'=>$fb_post['id']));
           $newPost->select();
           if($newPost->getRows() === 0) {
             $newPost->reset();
-            $newPost->setTable('socialhub_facebook');
+            $newPost->setTable(rex::getTablePrefix().'socialhub_facebook');
             $newPost->setValue('post_id',$fb_post['id']);
             $newPost->setValue('message',$fb_post['message']);
             $newPost->setValue('name',$fb_post['from']['name']);
@@ -53,7 +62,6 @@
         }
       }
 		}
-
 
     /**
      * Creates a socialhub_facebook instance.

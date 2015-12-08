@@ -3,6 +3,7 @@
   class socialhub_twitter extends socialhub {
 
     public static $url = 'https://twitter.com';
+    public static $search_url = 'https://twitter.com/search?q=%23';
     protected $table = 'rex_socialhub_twitter';
 
     private $counter = 0;
@@ -14,6 +15,13 @@
       parent::__construct();
     }
 
+    public function timeline() {
+      
+    }
+
+    public function findBy() {
+      
+    }
 
     public static function cron() {
       $Hub = self::factory();
@@ -77,7 +85,7 @@
 
       foreach($response->statuses as $data) {
         $lastId = $data->id;
-        $this->saveHashtagEntry($data,'#'.$hashtag);
+        $this->saveHashtagEntry($data,$hashtag);
       }
 
       $sql = rex_sql::factory();
@@ -108,7 +116,7 @@
         }
         $sql->setValue('created_time', date('Y-m-d H:i:s',strtotime($data->created_at)));
         $sql->setValue('user_id', $data->user->id);
-        $sql->setValue('query', '#'.$query);
+        $sql->setValue('query', $query);
         $sql->setValue('visible', ((!empty($data->entities->media)) ? '1' : '0'));
         
         try {
