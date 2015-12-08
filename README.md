@@ -12,7 +12,7 @@ Alle Einträge können aktiviert/deaktiviert bzw. hervorgehoben werden. Für ein
 
 ## Frontend
 
-Die Ausgabe der Einträge im Frontend funktioniert über REX_SOCIAL[]. Dabei können folgende Werte übermittelt werden:
+Die Ausgabe der Einträge im Frontend funktioniert über `REX_SOCIAL[]`. Dabei können folgende Werte übermittelt werden:
 
 <table width="100%">
 	<tr>
