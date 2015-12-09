@@ -5,4 +5,4 @@
     <span class="share-short"><?php echo $button[($this->getVar('short')?'short':'title')];?></span><?php }?></a>
   <?php if(($delimitter = $this->getVar('delimitter')) && $button !== end($buttons)) {?><span class="share_delimitter"><?php echo $delimitter;?></span><?php }?>
   <?php }?>
-</div><pre><?php print_r($buttons);?></pre>
+</div>
