@@ -12,7 +12,7 @@
   }
   
   if ($func == '') {
-    $list = rex_list::factory("SELECT `id`, `title`, `short`, `icon`, `link` FROM `".rex::getTablePrefix()."socialhub_share` ORDER BY `title` ASC");
+    $list = rex_list::factory("SELECT `id`, `title`, `short`, `icon`, `link`, `url_parameter` FROM `".rex::getTablePrefix()."socialhub_share` ORDER BY `title` ASC");
     $list->addTableAttribute('class', 'table-striped');
     $list->setNoRowsMessage($this->i18n('share_norowsmessage'));
     
@@ -54,6 +54,7 @@
 
     $list->setColumnLabel('title', $this->i18n('share_column_title'));
     $list->removeColumn('icon');
+    $list->removeColumn('url_parameter');
     $list->setColumnLabel('link', $this->i18n('share_column_link'));
     
     // functions column spans 2 data-columns
@@ -109,6 +110,11 @@
     //Start - add link-field
       $field = $form->addTextField('link');
       $field->setLabel($this->i18n('share_label_link'));
+    //End - add link-field
+    
+    //Start - add link-field
+      $field = $form->addTextAreaField('url_parameter');
+      $field->setLabel($this->i18n('share_label_parameter'));
     //End - add link-field
     
     

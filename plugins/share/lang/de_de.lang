@@ -20,6 +20,7 @@ share_label_title = Titel
 share_label_short = Kurzform (Beispiele: fb, g+, t)
 share_label_icon = Icon <a href="#fa" title="Icon von Font-Awesome nutzen">(Font-Awesome)</a>
 share_label_link = Link
+share_label_parameter = URL-Parameter
 
 share_open_plattform = Plattform in neuem Fenster öffnen
 share_deleted = Plattform erfolgreich gelöscht

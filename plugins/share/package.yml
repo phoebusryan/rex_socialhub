@@ -10,3 +10,4 @@ page:
   subpages:
     settings: {title: 'translate:settings'}
     buttons: {title: 'translate:social_buttons'}
+    help: {title: 'translate:help'}
