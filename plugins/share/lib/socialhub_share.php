@@ -7,7 +7,8 @@ class socialhub_share {
     $Plugin = rex_addon::get('socialhub');
     $Config = $Plugin->getConfig('share');
 
-    if(!empty($Config['modules']) && !in_array('all',$Config['modules']) && !in_array($Slice->getValue('module_id'),$Config['modules'])) return $Subject;
+    if(!empty($Config['modules']) && !in_array('all',$Config['modules']) && !in_array($Slice->getValue('module_id'),$Config['modules']))
+      return $Subject;
     
     $article = rex_sql::factory();
     // $article->setDebug();
@@ -25,19 +26,21 @@ class socialhub_share {
     if($template_attributes === null)
       $template_attributes = array();
 
-
-    if(!rex_template::hasModule($template_attributes,$Slice->getValue('ctype_id'),$Slice->getValue('module_id'))) {
-      return $Subject;
-    }
-
     if(!empty($Config['ctypes']))
       $Config['ctypes'] = $Config['ctypes'][$article->getValue('template_id')];
 
-    if(!empty($Config['ctypes']) && !in_array('all',$Config['ctypes']) && !in_array($Slice->getValue('ctype_id'),$Config['ctypes'])) {
+    if(!empty($Config['ctypes']) && !in_array('all',$Config['ctypes']) && !in_array($Slice->getValue('ctype_id'),$Config['ctypes']))
       return $Subject;
-    }
     
+    $shareButtons = rex_sql::factory()
+      ->setTable(rex::getTablePrefix().'socialhub_share')
+      ->select()->getArray();
+
     $fragment = new rex_fragment();
+    $fragment->setVar('buttons',$shareButtons);
+    $fragment->setVar('fontawesome',!empty($Config['general']['fontawesome'])?$Config['general']['fontawesome']:false);
+    $fragment->setVar('short',!empty($Config['general']['short'])?$Config['general']['short']:false);
+    $fragment->setVar('delimitter',!empty($Config['general']['delimitter'])?str_replace(' ',"&nbsp;",$Config['general']['delimitter']):false,false);
     $Buttons = $fragment->parse('share.php');
 
     if(empty($Config['general']['position']) || $Config['general']['position'] == '0')

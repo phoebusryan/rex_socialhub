@@ -9,3 +9,4 @@ page:
   icon: rex-icon fa-share-alt
   subpages:
     settings: {title: 'translate:settings'}
+    buttons: {title: 'translate:social_buttons'}

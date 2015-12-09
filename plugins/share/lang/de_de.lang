@@ -1,13 +1,40 @@
 #subpage facebook
 socialhub_share = Share
 socialhub_share_settings = Einstellungen
+socialhub_share_social_buttons = Plattformen
 
 share_general = Allgemein
 share_config_modules = Module einstellen
 template_headline = Template einstellen
 
-socialhub_share_position = Buttons über den Slices anzeigen
+share_formcaption_edit = Editieren
+share_formcaption_add = Hinzufügen
+
+share_column_title = Titel
+share_column_short = Kurzform
+share_column_icon = Icon
+share_column_link = Link
+share_column_functions = Funktionen
+
+share_label_title = Titel
+share_label_short = Kurzform (Beispiele: fb, g+, t)
+share_label_icon = Icon <a href="#fa" title="Icon von Font-Awesome nutzen">(Font-Awesome)</a>
+share_label_link = Link
+
+share_open_plattform = Plattform in neuem Fenster öffnen
+share_deleted = Plattform erfolgreich gelöscht
+share_norowsmessage = Keine Plattformen gefunden
+
+socialhub_share_position = Buttons über den Slices anzeigen?
+socialhub_share_fontawesome = Font-Awesome im Frontend nutzen?
+socialhub_share_short = Kurzformen für Buttons verwenden?
+socialhub_share_delimitter = Button-Trennzeichen
+
 ctypes_available_all = Alle CTypes verfügbar
 ctypes_available = Nur folgende CTypes sind verfügbar
+
+socialhub_share_fontawesome_info = Icons können nur verwendet werden, wenn im Frontend Font-Awesome eingebunden ist.
+socialhub_share_short_info = Social Media Buttons werden in ihrer Kurzform ausgegeben.
+socialhub_share_delimitter_info = Die Trennzeichen werden zwischen den Buttons als SPAN-Tag ausgegeben. Leerzeichen sind möglich, aber nicht empfehlenswert.
 
 config_saved_successfull = Konfiguration erfolgreich gespeichert

@@ -47,6 +47,28 @@ $fragment->setVar('label', rex_i18n::msg('socialhub_share_position'), false);
 $content .= $fragment->parse('form/checkbox.php');
 
 $fragment = new rex_fragment();
+$fragment->setVar('name', 'share[general][fontawesome]', false);
+$fragment->setVar('checked', (!empty($Values['fontawesome']) && $Values['fontawesome'] == '1'?true:false), false);
+$fragment->setVar('label', rex_i18n::msg('socialhub_share_fontawesome'), false);
+$fragment->setVar('info', rex_i18n::msg('socialhub_share_fontawesome_info'), false);
+$content .= $fragment->parse('form/checkbox.php');
+
+$fragment = new rex_fragment();
+$fragment->setVar('name', 'share[general][short]', false);
+$fragment->setVar('checked', (!empty($Values['short']) && $Values['short'] == '1'?true:false), false);
+$fragment->setVar('label', rex_i18n::msg('socialhub_share_short'), false);
+$fragment->setVar('info', rex_i18n::msg('socialhub_share_short_info'), false);
+$content .= $fragment->parse('form/checkbox.php');
+
+$fragment = new rex_fragment();
+$fragment->setVar('name', 'share[general][delimitter]', false);
+$fragment->setVar('value', $Values['delimitter'], false);
+$fragment->setVar('label', rex_i18n::msg('socialhub_share_delimitter'), false);
+$fragment->setVar('info', rex_i18n::msg('socialhub_share_delimitter_info'), false);
+$fragment->addDirectory($this->getAddon()->getPath());
+$content .= $fragment->parse('form/input.php');
+
+$fragment = new rex_fragment();
 $fragment->setVar('class', 'edit', false);
 $fragment->setVar('title', rex_i18n::msg('share_general'));
 $fragment->setVar('body', $content, false);
