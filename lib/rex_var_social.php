@@ -4,6 +4,9 @@ class rex_var_social extends rex_var {
   
   protected function getOutput() {
 
+    if(rex::isBackend())
+      return self::quote('##Socialhub-Ausgabe##');
+
     $Type = $this->getArg('type', '', true);
     $From = $this->getArg('from', '', true);
     $Template = $this->getArg('template', '', true);
@@ -59,6 +62,11 @@ class rex_var_social extends rex_var {
           if(!is_array($From))
             $From = explode(',',$From);
           foreach($From as $classPart) {
+            $Plugin = rex_plugin::get('socialhub',$classPart);
+            $hasEntries = $Plugin->getProperty('entries');
+
+            if(!$hasEntries) continue;
+
             $Class = 'socialhub_'.$classPart;
             $Class = $Class::factory();
             $entry .= $Class->timeline();

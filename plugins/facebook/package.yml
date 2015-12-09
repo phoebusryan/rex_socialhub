@@ -1,5 +1,5 @@
 package: socialhub/facebook
-version: '1.0.0alpha1'
+version: '1.0.0beta1'
 author: "Thomas Kaegi, Sascha Weidner"
 supportpage: "github.com/factorylabs/redaxo_socialhub/tree/master/plugins/facebook"
 
@@ -16,3 +16,5 @@ page:
         index: { title: 'translate:settings' }
         entries: { title: 'translate:entries' }
         highlights: { title: 'translate:highlights' }
+
+entries: true

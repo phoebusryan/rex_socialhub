@@ -1,0 +1,13 @@
+#subpage facebook
+socialhub_share = Share
+socialhub_share_settings = Einstellungen
+
+share_general = Allgemein
+share_config_modules = Module einstellen
+template_headline = Template einstellen
+
+socialhub_share_position = Buttons über den Slices anzeigen
+ctypes_available_all = Alle CTypes verfügbar
+ctypes_available = Nur folgende CTypes sind verfügbar
+
+config_saved_successfull = Konfiguration erfolgreich gespeichert

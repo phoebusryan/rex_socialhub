@@ -1,5 +1,5 @@
 package: socialhub/instagram
-version: '1.0.0alpha1'
+version: '1.0.0beta1'
 author: "Thomas Kaegi, Sascha Weidner"
 supportpage: "github.com/factorylabs/redaxo_socialhub/tree/master/plugins/instagram"
 
@@ -17,4 +17,5 @@ page:
         entries: { title: 'translate:entries', pjax: true }
         highlights: { title: 'translate:highlights', pjax: true }
 
+entries: true
 hashtags: true
