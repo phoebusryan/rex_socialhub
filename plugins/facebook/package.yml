@@ -1,6 +1,6 @@
 package: socialhub/facebook
-version: '1.0.0beta1'
-author: "Thomas Kaegi, Sascha Weidner"
+version: '1.0.0'
+author: "Sascha Weidner, Thomas Kaegi"
 supportpage: "github.com/factorylabs/redaxo_socialhub/tree/master/plugins/facebook"
 
 requires:

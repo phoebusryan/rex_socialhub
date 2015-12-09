@@ -42,6 +42,38 @@ Die Ausgabe der Einträge im Frontend funktioniert über `REX_SOCIAL[]`. Dabei k
 	</tr>
 </table>
 
+### Share-Buttons (Beta1)
+
+Mit dem Plugin Share können Share-Buttons zu Slices hinzugefügt werden. In den Einstellungen kann definiert werden, in welchen CTypes und für welche Module diese Buttons generiert werden sollen.
+
+Da unterschiedliche Plattformen unterschiedliche Parameter benötigen um Inhalte zu teilen, muss jeder Plattform die spezifischen Parameter Umbruchgetrennt zugeordnet werden. Dabei können folgende Variablen in den Parametern verwendet werden:
+
+<table width="100%">
+	<tr>
+		<th>Variable</th>
+		<th>Beschreibung</th>
+	</tr>
+	<tr>
+		<td>{{SHARE_URL}}</td>
+		<td>Wird durch die aktuelle URL ersetzt.</td>
+	</tr>
+	<tr>
+		<td>{{SHARE_TITLE}}</td>
+		<td>Wird ersetzt durch: Seitennamen - Artikelname</td>
+	</tr>
+</table>
+
+#### Variablen überschreiben
+ 
+Alle Variablen können in einem Slice wie folgt überschrieben werden:
+
+```
+<?php 
+	socialhub_share::setConfig('share_url','http://www.domain.tld');
+	socialhub_share::setConfig('share_title','Ein neuer Titel');
+?>
+```
+
 ### Ohne Grid laden
 
 ```
