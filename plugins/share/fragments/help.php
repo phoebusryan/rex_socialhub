@@ -1,3 +1,5 @@
+<h3>Funktion</h3>
+<p>Share fügt an jedem Slice der die nötige Berechtigung hat, ein Social Share Buttonset hinzu. Das kann vor allem für News, Events etc. nützlich sein.</p>
 <h3>Plattformen - Parameter</h3>
 <p>Unterschiedliche Plattformen, benötigen unterschiedliche Parameter. Facebook benötigt als Beispiel eine URL (u=), einen Titel (t=) und eine Redirect-URL (redirec_url=)</p>
 <p>Jeder Parameter muss in einer neuen Zeile notiert werden.</p> 

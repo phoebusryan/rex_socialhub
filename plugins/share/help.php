@@ -1,6 +1,6 @@
-<p>Variablen in der URL können wie folgt in einer Slice-Ausgabe umgeschrieben werden:</p>
+<?php 
 
-&lt;?php
-socialhub_share::setConfig('share_url','eine URL');<br>
-socialhub_share::setConfig('share_title','Ein Titel');<br>
-?&gt;
+$fragment = new rex_fragment();
+$content = $fragment->parse('help.php');
+
+echo $content;
