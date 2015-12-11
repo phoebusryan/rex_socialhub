@@ -14,3 +14,9 @@ socialhub_instagram_account = Account
 
 #permissions
 perm_general_socialhub[instagram] = Rechte für die Seite 'Instagram'
+
+#Error
+
+socialhub_instagram_no_account = Es konnten keine Account-Daten für Instagram gefunden werden! Bitte registriere deine Account-Daten.
+socialhub_instagram_no_response = Es wurden keine Daten zurückgeliefert. Bitte überprüfe ggf. Internetverbindung, Firewall und Proxy-Einstellungen des Servers.
+socialhub_instagram_no_hashtags = Es konnten keine Hashtags gefunden werde. Bitte lege ggf. Hashtags an.

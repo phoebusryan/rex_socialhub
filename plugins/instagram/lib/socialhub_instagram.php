@@ -53,12 +53,19 @@
 			$Accounts = rex_config::get('socialhub','instagram');
 			$Accounts = $Accounts['accounts'];
 
-			if(!$Accounts) return;
+			if(!$Accounts) {
+        echo rex_view::error(rex_i18n::msg('socialhub_instagram_no_account'));
+        return;
+      }
 
 			foreach($Accounts as $token => $account) {
 				$response = $Hub->curlURL('https://api.instagram.com/v1/users/self/feed?&access_token='.$token);
 				$response = json_decode($response);
 
+        if(empty($response->data)) {
+          echo rex_view::error(rex_i18n::msg('socialhub_instagram_no_response'));
+          continue;
+        }
 				foreach($response->data as $key => $data) {
 					$sql = rex_sql::factory();
           $sql->setTable($Hub->table);
@@ -86,6 +93,12 @@
 
 		public static function loadHashtags() {
 			$Hub = self::factory();
+      $Hashtags = $Hub->getHashtags();
+
+      if(empty($Hashtags)) {
+        echo rex_view::error(rex_i18n::msg('socialhub_instagram_no_hashtags'));
+        return;
+      }
 			foreach($Hub->getHashtags() as $hashtag => $next_id)
 				$Hub->getDataByHashtag($hashtag,$next_id);
 		}
@@ -93,7 +106,10 @@
 		private function getDataByHashtag($hashtag, $nextID = false) {
 			$Token = rex_config::get('socialhub','instagram');
 			$Token = $Token['access_token'];
-			if(!$Token) return;
+			if(!$Token) {
+        echo rex_view::error(rex_i18n::msg('socialhub_instagram_no_account'));
+        return;
+      }
 
 			if ($nextID && $nextID != 0) {
 				$url = 'https://api.instagram.com/v1/tags/'.$hashtag.'/media/recent?count=100&access_token='.$Token.'&min_tag_id='.$nextID;
@@ -103,6 +119,11 @@
 
 			$response = $this->curlURL($url);
 			$response = json_decode($response);
+
+      if(empty($response)) {
+        echo rex_view::error(rex_i18n::msg('socialhub_instagram_no_response'));
+        return;
+      }
 
 			if($response->pagination && property_exists($response->pagination,'min_tag_id') && $response->pagination->min_tag_id !== 0) {
 				$hash_sql = rex_sql::factory();
@@ -125,6 +146,8 @@
 					$this->saveHashtagEntry($data,'#'.$hashtag);
 				}
 			}
+
+      return true;
 		}
 
 		private function saveHashtagEntry($data,$query) {

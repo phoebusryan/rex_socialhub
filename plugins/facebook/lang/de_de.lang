@@ -9,3 +9,8 @@ socialhub_facebook_highlights = Hervorgehoben
 
 #permissions
 perm_general_socialhub[facebook] = Rechte für die Seite 'Facebook'
+
+# Error
+
+socialhub_facebook_no_page = Es konnte keine Facebook-Seite gefunden werden
+socialhub_facebook_no_connection = Keine Verbindung zu Facebook möglich. Bitte Prüfe die Internetverbindung, Firewall- und Proxy-Einstellungen des Servers
