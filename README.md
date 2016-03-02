@@ -4,10 +4,6 @@ Lädt die Timelines von Facebook, Twitter und Instagram in die Redaxo-Datenbank.
 
 Facebook hat keine Hashtag-API mehr. Daher wird dieses Feature nicht eingebaut.
 
-##Support-Beschleunigung
-
-[Amazon Wunschliste](https://www.amazon.de/gp/registry/wishlist/3IW6TE09RDGV2)
-
 ## Installation
 
 Socialhub benötigt Plugins damit es funktionieren kann. Jedes Plugin fügt Cronjobs hinzu, die von den jeweiligen Plattformen Daten laden und in Redaxo speichern.
