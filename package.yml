@@ -1,7 +1,7 @@
 package: socialhub
-version: '1.2.0'
-author: "Sascha Weidner, Thomas Kaegi"
-supportpage: "github.com/factorylabs/redaxo_socialhub"
+version: 1.2.0
+author: Thomas Kaegi, Sascha Weidner
+supportpage: github.com/phoebusryan/rex_socialhub
 
 page:
   title: 'translate:title'
