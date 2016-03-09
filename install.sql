@@ -8,7 +8,7 @@ CREATE TABLE IF NOT EXISTS `%TABLE_PREFIX%socialhub_entries` (
  `image` varchar(250) NOT NULL,
  `video` varchar(250) NOT NULL,
  `created_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
- `user_id` int(11) unsigned NOT NULL,
+ `user_id` int(10) unsigned NOT NULL,
  `query` varchar(100) NOT NULL,
  PRIMARY KEY (`id`),
  KEY `visible+source` (`visible`,`source`),
