@@ -1,5 +1,5 @@
 package: rex_socialhub
-version: 1.2.1
+version: 1.2.2
 author: Thomas Kaegi, Sascha Weidner
 supportpage: github.com/phoebusryan/rex_socialhub
 
@@ -17,4 +17,3 @@ page:
         entries:
           title: 'translate:entries'
           perm: socialhub[entries]
-    help: { title: 'translate:help'}
