@@ -5,7 +5,7 @@ supportpage: github.com/phoebusryan/rex_socialhub
 
 page:
   title: 'translate:title'
-  perm: socialhub[]
+  perm: rex_socialhub[]
   icon: rex-icon fa-share-alt
   subpages:
     hashtags:
@@ -13,7 +13,7 @@ page:
       subpages:
         hashtags:
           title: 'translate:hashtags'
-          perm: socialhub[hashtags]
+          perm: rex_socialhub[hashtags]
         entries:
           title: 'translate:entries'
-          perm: socialhub[entries]
+          perm: rex_socialhub[entries]
