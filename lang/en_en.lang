@@ -1,37 +1,37 @@
 ##Allgemein
-socialhub_title = Socialhub
-socialhub_all = All
+rex_socialhub_title = Socialhub
+rex_socialhub_all = All
 
 #subpage_main
-socialhub_main = Main page
+rex_socialhub_main = Main page
 
 config_saved_successfull = Successfully saved
 
 #subpage_hashtag
-socialhub_hashtags = Hashtags
-socialhub_hashtags_caption = List of defined hashtags
-socialhub_column_hashtag = Hashtag
-socialhub_label_name = Name
+rex_socialhub_hashtags = Hashtags
+rex_socialhub_hashtags_caption = List of defined hashtags
+rex_socialhub_column_hashtag = Hashtag
+rex_socialhub_label_name = Name
 
 #subpage entries
-socialhub_help = Help
-socialhub_entries = Entries
-socialhub_hastag_entries = Hashtag entries
-socialhub_entries_caption = List of found entries
-socialhub_column_caption = Caption
-socialhub_column_query = Query
-socialhub_label_source = Origin
-socialhub_label_visible = Visible
-socialhub_label_hashtag = Hashtag
-socialhub_label_keyword = Keyword
-socialhub_label_status = Status
-socialhub_button_filter = filter
-socialhub_button_save = filter
+rex_socialhub_help = Help
+rex_socialhub_entries = Entries
+rex_socialhub_hastag_entries = Hashtag entries
+rex_socialhub_entries_caption = List of found entries
+rex_socialhub_column_caption = Caption
+rex_socialhub_column_query = Query
+rex_socialhub_label_source = Origin
+rex_socialhub_label_visible = Visible
+rex_socialhub_label_hashtag = Hashtag
+rex_socialhub_label_keyword = Keyword
+rex_socialhub_label_status = Status
+rex_socialhub_button_filter = filter
+rex_socialhub_button_save = filter
 
 #general
-socialhub_config_save = Save settings
-socialhub_config_saved = Settings successfully saved!
-socialhub_functions = Functions
+rex_socialhub_config_save = Save settings
+rex_socialhub_config_saved = Settings successfully saved!
+rex_socialhub_functions = Functions
 
 #permissions
 perm_general_socialhub[] = Socialhub permissions
