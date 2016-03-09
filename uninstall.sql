@@ -1,2 +1,2 @@
-DROP TABLE IF EXISTS `rex_socialhub_entries`;
-DROP TABLE IF EXISTS `rex_socialhub_hashtags`;
+DROP TABLE IF EXISTS `%TABLE_PREFIX%socialhub_entries`;
+DROP TABLE IF EXISTS `%TABLE_PREFIX%socialhub_hashtags`;
