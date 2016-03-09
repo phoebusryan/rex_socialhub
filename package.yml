@@ -4,16 +4,18 @@ author: Thomas Kaegi, Sascha Weidner
 supportpage: github.com/phoebusryan/rex_socialhub
 
 page:
-  title: 'translate:title'
-  perm: rex_socialhub[]
-  icon: rex-icon fa-share-alt
-  subpages:
-    hashtags:
-      title: 'translate:hashtags'
-      subpages:
+    title: 'translate:title'
+    perm: rex_socialhub[]
+    icon: rex-icon fa-share-alt
+    pjax: true
+    subpages:
+    default: { title: 'translate:default', perm: rex_socialhub[default] }
         hashtags:
-          title: 'translate:hashtags'
-          perm: rex_socialhub[hashtags]
-        entries:
-          title: 'translate:entries'
-          perm: rex_socialhub[entries]
+            title: 'translate:hashtags'
+            subpages:
+                hashtags:
+                    title: 'translate:hashtags'
+                    perm: rex_socialhub[hashtags]
+                entries:
+                    title: 'translate:entries'
+                    perm: rex_socialhub[entries]
