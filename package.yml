@@ -1,5 +1,5 @@
-package: socialhub
-version: 1.2.0
+package: rex_socialhub
+version: 1.2.1
 author: Thomas Kaegi, Sascha Weidner
 supportpage: github.com/phoebusryan/rex_socialhub
 
