@@ -1,5 +1,5 @@
-CREATE TABLE IF NOT EXISTS `rex_socialhub_entries` (
- `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `%TABLE_PREFIX%socialhub_entries` (
+ `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
  `visible` tinyint(1) NOT NULL,
  `source` varchar(20) NOT NULL,
  `source_id` varchar(255) NOT NULL,
@@ -15,8 +15,8 @@ CREATE TABLE IF NOT EXISTS `rex_socialhub_entries` (
  KEY `created_time` (`created_time`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
-CREATE TABLE IF NOT EXISTS `rex_socialhub_hashtags` (
- `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `%TABLE_PREFIX%socialhub_hashtags` (
+ `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
  `hashtag` varchar(50) NOT NULL,
  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
