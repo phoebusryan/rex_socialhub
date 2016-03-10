@@ -1,32 +1,27 @@
 <?php
+	$RSHI = rex_socialhub_instagram::factory();
+	
+	if (rex_post('btn_save', 'string') != '') {
+		$pValues = rex_post('rex_socialhub', [
+			['instagram', 'array'],
+		]);
 
-$message = '';
-
-$RSHI = socialhub_instagram::factory();
-
-$Values = $this->getConfig('instagram');
-
-if(rex_post('btn_save', 'string') != '') {
-
-  $pValues = rex_post('socialhub', [
-    ['instagram', 'array'],
-  ]);
-
-	$pValues['instagram']['access_tokens'] = array_filter($pValues['instagram']['access_tokens']);
-	$pValues['instagram']['access_tokens'] = array_unique($pValues['instagram']['access_tokens']);
-	if(!empty($pValues['instagram']['access_tokens'])) {
-		$pValues['instagram']['accounts'] = $RSHI->getAccountData($pValues['instagram']['access_tokens']);
-		$pValues['instagram']['access_token'] = $pValues['instagram']['access_tokens'][0];
-	} else {
-		$pValues['instagram']['accounts'] = [];
-		$pValues['instagram']['access_token'] = 0;
+		$pValues['instagram']['access_tokens'] = array_filter($pValues['instagram']['access_tokens']);
+		$pValues['instagram']['access_tokens'] = array_unique($pValues['instagram']['access_tokens']);
+		if(!empty($pValues['instagram']['access_tokens'])) {
+			$pValues['instagram']['accounts'] = $RSHI->getAccountData($pValues['instagram']['access_tokens']);
+			$pValues['instagram']['access_token'] = $pValues['instagram']['access_tokens'][0];
+		} else {
+			$pValues['instagram']['accounts'] = [];
+			$pValues['instagram']['access_token'] = 0;
+		}
+	
+		$this->setConfig($pValues);
+		$message = $this->i18n('config_saved_successfull');
 	}
-
-  $this->setConfig($pValues);
-  $message = $this->i18n('config_saved_successfull');
-}
-
-$content = $sections = '';
+	
+	$content = '';
+	$sections = '';
 
 $Values = $this->getConfig('instagram');
 // print_r($Values);
