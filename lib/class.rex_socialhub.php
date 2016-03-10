@@ -1,15 +1,10 @@
 <?php
-	abstract class socialhub {
-
+	abstract class rex_socialhub {
 		protected $plugin = '';
 		private $sql = null;
-
-    use rex_factory_trait;
-
-		abstract public function timeline();
-		abstract public function findBy();
-		abstract public static function cron();
-
+		
+//		use rex_factory_trait;
+		
 		protected function __construct() {
 			$this->sql = rex_sql::factory();
 			$this->sql->setTable($this->table);
