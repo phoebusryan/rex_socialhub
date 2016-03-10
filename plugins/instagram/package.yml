@@ -4,7 +4,7 @@ author: Thomas Kaegi, Sascha Weidner
 supportpage: https://github.com/phoebusryan/rex_socialhub/tree/master/plugins/instagram
 
 requires:
-    packages: 
+    packages:
         cronjob: '>=2.0.1'
 
 page:
