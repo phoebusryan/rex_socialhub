@@ -2,7 +2,7 @@
 	$RSHI = rex_socialhub_twitter::factory();
 	
 	if (rex_post('btn_save', 'string') != '') {
-		$pValues = rex_post('socialhub', [
+		$pValues = rex_post('rex_socialhub', [
 			['twitter', 'array'],
 		]);
 		
