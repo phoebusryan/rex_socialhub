@@ -5,7 +5,7 @@ supportpage: https://github.com/phoebusryan/rex_socialhub/tree/master/plugins/in
 
 requires:
     packages: 
-        cronjob: '>=2.0.0-beta1'
+        cronjob: '>=2.0.1'
 
 page:
     title: 'translate:instagram'
