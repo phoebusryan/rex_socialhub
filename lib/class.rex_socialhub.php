@@ -3,7 +3,7 @@
 		protected $plugin = '';
 		private $sql = null;
 		
-//		use rex_factory_trait;
+		use rex_factory_trait;
 		
 		protected function __construct() {
 			$this->sql = rex_sql::factory();
