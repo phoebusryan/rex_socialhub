@@ -1,21 +1,21 @@
-package: socialhub/instagram
-version: '1.0.0'
-author: "Sascha Weidner, Thomas Kaegi"
-supportpage: "github.com/factorylabs/redaxo_socialhub/tree/master/plugins/instagram"
+package: rex_socialhub/instagram
+version: 1.0.1
+author: Thomas Kaegi, Sascha Weidner
+supportpage: https://github.com/phoebusryan/rex_socialhub/tree/master/plugins/instagram
 
 requires:
-  packages: 
-    cronjob: '>=2.0.0-beta1'
+    packages: 
+        cronjob: '>=2.0.0-beta1'
 
 page:
     title: 'translate:instagram'
     icon: rex-icon fa-instagram
-    perm: socialhub[instagram]
+    perm: rex_socialhub[instagram]
     pjax: true
     subpages:
-        index: { title: 'translate:settings', pjax: true }
-        entries: { title: 'translate:entries', pjax: true }
-        highlights: { title: 'translate:highlights', pjax: true }
+        index: { title: 'translate:settings' }
+        entries: { title: 'translate:entries' }
+        highlights: { title: 'translate:highlights' }
 
 entries: true
 hashtags: true

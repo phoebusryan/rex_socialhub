@@ -1,16 +1,16 @@
-package: socialhub/facebook
-version: '1.0.0'
-author: "Sascha Weidner, Thomas Kaegi"
-supportpage: "github.com/factorylabs/redaxo_socialhub/tree/master/plugins/facebook"
+package: rex_socialhub/facebook
+version: 1.0.1
+author: Thomas Kaegi, Sascha Weidner
+supportpage: https://github.com/phoebusryan/rex_socialhub/tree/master/plugins/facebook
 
 requires:
-  packages: 
-    cronjob: '>=2.0.0-beta1'
+    packages: 
+        cronjob: '>=2.0.0-beta1'
 
 page:
     title: 'translate:facebook'
     icon: rex-icon fa-facebook
-    perm: socialhub[facebook]
+    perm: rex_socialhub[facebook]
     pjax: false
     subpages:
         index: { title: 'translate:settings' }

@@ -1,16 +1,16 @@
-package: socialhub/twitter
-version: '1.0.0'
-author: "Sascha Weidner, Thomas Kaegi"
-supportpage: "github.com/factorylabs/redaxo_socialhub/tree/master/plugins/twitter"
+package: rex_socialhub/twitter
+version: 1.0.1
+author: Thomas Kaegi, Sascha Weidner
+supportpage: https://github.com/phoebusryan/rex_socialhub/tree/master/plugins/twitter
 
 requires:
-  packages: 
-    cronjob: '>=2.0.0-beta1'
+    packages:
+        cronjob: '>=2.0.0-beta1'
 
 page:
     title: 'translate:twitter'
     icon: rex-icon fa-twitter
-    perm: socialhub[twitter]
+    perm: rex_socialhub[twitter]
     pjax: false
     subpages:
         index: { title: 'translate:settings' }
