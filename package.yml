@@ -9,7 +9,9 @@ page:
     icon: rex-icon fa-share-alt
     pjax: true
     subpages:
-    default: { title: 'translate:default', perm: rex_socialhub[default] }
+        default:
+            title: 'translate:default'
+            perm: rex_socialhub[default]
         hashtags:
             title: 'translate:hashtags'
             subpages:
