@@ -190,7 +190,7 @@
 	$content = $list->get();
 	
 	$fragment = new rex_fragment();
-	$fragment->setVar('title', $this->i18n('socialhub_entries_caption'), false);
+	$fragment->setVar('title', $this->i18n('entries_caption'), false);
 	$fragment->setVar('content', $content, false);
 	$content = $fragment->parse('core/page/section.php');
 	
