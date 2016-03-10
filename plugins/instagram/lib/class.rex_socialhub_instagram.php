@@ -1,6 +1,6 @@
 <?php
 
-	class socialhub_instagram extends socialhub {
+	class rex_socialhub_instagram extends rex_socialhub {
 
 		public static $url = 'https://instagram.com';
 		public static $post_dir = '/p/';
