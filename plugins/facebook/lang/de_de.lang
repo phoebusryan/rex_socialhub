@@ -1,16 +1,15 @@
 #subpage facebook
-socialhub_facebook = Facebook
-socialhub_facebook_infotext = Lorem Ipsum
-socialhub_facebook_button_save = Speichern
+rex_socialhub_facebook = Facebook
+rex_socialhub_facebook_infotext = Lorem Ipsum
+rex_socialhub_facebook_button_save = Speichern
 
-socialhub_facebook_page = Facebookseite
+rex_socialhub_facebook_page = Facebookseite
 
-socialhub_facebook_highlights = Hervorgehoben
+rex_socialhub_facebook_highlights = Hervorgehoben
 
 #permissions
-perm_general_socialhub[facebook] = Rechte für die Seite 'Facebook'
+perm_general_rex_socialhub[facebook] = Rechte für die Seite 'Facebook'
 
 # Error
-
-socialhub_facebook_no_page = Es konnte keine Facebook-Seite gefunden werden
-socialhub_facebook_no_connection = Keine Verbindung zu Facebook möglich. Bitte Prüfe die Internetverbindung, Firewall- und Proxy-Einstellungen des Servers
+rex_socialhub_facebook_no_page = Es konnte keine Facebook-Seite gefunden werden
+rex_socialhub_facebook_no_connection = Keine Verbindung zu Facebook möglich. Bitte Prüfe die Internetverbindung, Firewall- und Proxy-Einstellungen des Servers

@@ -1,22 +1,21 @@
 #subpage instagram
-socialhub_instagram = Instagram
-socialhub_instagram_infotext = Lorem Ipsum
-socialhub_instagram_button_save = Speichern
+rex_socialhub_instagram = Instagram
+rex_socialhub_instagram_infotext = Lorem Ipsum
+rex_socialhub_instagram_button_save = Speichern
 
-socialhub_general = Allgemein
-socialhub_accounts = Accounts
+rex_socialhub_general = Allgemein
+rex_socialhub_accounts = Accounts
 
-socialhub_instagram_client = Client ID
-socialhub_instagram_access_token = Access Token
-socialhub_instagram_highlights = Hervorgehoben
+rex_socialhub_instagram_client = Client ID
+rex_socialhub_instagram_access_token = Access Token
+rex_socialhub_instagram_highlights = Hervorgehoben
 
-socialhub_instagram_account = Account
+rex_socialhub_instagram_account = Account
 
 #permissions
-perm_general_socialhub[instagram] = Rechte für die Seite 'Instagram'
+perm_general_rex_socialhub[instagram] = Rechte für die Seite 'Instagram'
 
 #Error
-
-socialhub_instagram_no_account = Es konnten keine Account-Daten für Instagram gefunden werden! Bitte registriere deine Account-Daten.
-socialhub_instagram_no_response = Es wurden keine Daten zurückgeliefert. Bitte überprüfe ggf. Internetverbindung, Firewall und Proxy-Einstellungen des Servers.
-socialhub_instagram_no_hashtags = Es konnten keine Hashtags gefunden werde. Bitte lege ggf. Hashtags an.
+rex_socialhub_instagram_no_account = Es konnten keine Account-Daten für Instagram gefunden werden! Bitte registriere deine Account-Daten.
+rex_socialhub_instagram_no_response = Es wurden keine Daten zurückgeliefert. Bitte überprüfe ggf. Internetverbindung, Firewall und Proxy-Einstellungen des Servers.
+rex_socialhub_instagram_no_hashtags = Es konnten keine Hashtags gefunden werde. Bitte lege ggf. Hashtags an.
