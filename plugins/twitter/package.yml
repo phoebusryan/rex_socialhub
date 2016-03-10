@@ -11,7 +11,7 @@ page:
     title: 'translate:twitter'
     icon: rex-icon fa-twitter
     perm: rex_socialhub[twitter]
-    pjax: false
+    pjax: true
     subpages:
         index: { title: 'translate:settings' }
         entries: { title: 'translate:entries' }
