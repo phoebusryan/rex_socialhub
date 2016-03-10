@@ -1,6 +1,6 @@
 <?php
 
-	class socialhub_facebook extends socialhub {
+	class rex_socialhub_facebook extends rex_socialhub {
 
     protected $table = 'rex_socialhub_facebook';
 
