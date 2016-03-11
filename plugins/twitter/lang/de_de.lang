@@ -1,18 +1,22 @@
 #subpage twitter
 rex_socialhub_twitter = Twitter
-rex_socialhub_twitter_infotext = Lorem Ipsum Twitter
-rex_socialhub_twitter_button_save = Speichern
 
-rex_socialhub_general = Allgemein
-rex_socialhub_accounts = Accounts
+#tab account
 
-rex_socialhub_twitter_consumer_token = Consumer Token
-rex_socialhub_twitter_secret_token = Consumer Secret Token
-rex_socialhub_twitter_access_token = Access Token
-rex_socialhub_twitter_secret_token = Secret Token
-rex_socialhub_twitter_highlights = Hervorgehoben
+rex_socialhub_twitter_account_norowsmessage = Es wurden keine Accounts gefunden
 
-rex_socialhub_twitter_account = Account
+rex_socialhub_twitter_account_formcaption_add = Account hinzufügen
+rex_socialhub_twitter_account_formcaption_edit = Account bearbeiten
+
+rex_socialhub_twitter_account_column_title = Titel
+rex_socialhub_twitter_account_column_functions = Funktionen
+
+rex_socialhub_twitter_account_label_title = Titel
+rex_socialhub_twitter_account_label_consumer_token = Consumer Token
+rex_socialhub_twitter_account_label_consumer_secret_token = Consumer Secret Token
+rex_socialhub_twitter_account_label_access_token = Access Token
+rex_socialhub_twitter_account_label_secret_token = Secret Token
+
 
 #permissions
 perm_general_rex_socialhub[twitter] = Rechte für die Seite 'Twitter'
