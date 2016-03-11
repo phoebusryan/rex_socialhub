@@ -9,7 +9,6 @@ requires:
 
 page:
     title: 'translate:instagram'
-    icon: rex-icon fa-instagram
     perm: rex_socialhub[instagram]
     pjax: true
     subpages:

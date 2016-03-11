@@ -9,7 +9,6 @@ requires:
 
 page:
     title: 'translate:facebook'
-    icon: rex-icon fa-facebook
     perm: rex_socialhub[facebook]
     pjax: true
     subpages:

@@ -9,7 +9,6 @@ requires:
 
 page:
     title: 'translate:twitter'
-    icon: rex-icon fa-twitter
     perm: rex_socialhub[twitter]
     pjax: true
     subpages:
