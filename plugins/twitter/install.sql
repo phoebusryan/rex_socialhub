@@ -1,5 +1,5 @@
-CREATE TABLE IF NOT EXISTS `rex_socialhub_twitter` (
- `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `%TABLE_PREFIX%socialhub_twitter` (
+ `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
  `post_id` varchar(100) NOT NULL,
  `message` text NULL,
  `image` text NULL,

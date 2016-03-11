@@ -1,1 +1,1 @@
-DROP TABLE IF EXISTS `rex_socialhub_facebook`;
+DROP TABLE IF EXISTS `%TABLE_PREFIX%socialhub_facebook`;
