@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS `%TABLE_PREFIX%socialhub_twitter_entries` (
+CREATE TABLE IF NOT EXISTS `%TABLE_PREFIX%socialhub_twitter_entry` (
  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
  `post_id` varchar(100) NOT NULL,
  `message` text NULL,
@@ -14,6 +14,7 @@ CREATE TABLE IF NOT EXISTS `%TABLE_PREFIX%socialhub_twitter_entries` (
 
 CREATE TABLE IF NOT EXISTS `%TABLE_PREFIX%socialhub_twitter_account` (
  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+ `title` varchar(100) NOT NULL,
  `consumer_token` varchar(100) NOT NULL,
  `consumer_secret_token` varchar(100) NOT NULL,
  `access_token` varchar(100) NOT NULL,
