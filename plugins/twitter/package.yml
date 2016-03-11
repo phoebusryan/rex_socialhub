@@ -12,7 +12,7 @@ page:
     perm: rex_socialhub[twitter]
     pjax: true
     subpages:
-        index: { title: 'translate:settings' }
+        accounts: { title: 'translate:accounts' }
         entries: { title: 'translate:entries' }
         highlights: { title: 'translate:highlights' }
 
