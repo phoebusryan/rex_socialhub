@@ -1,21 +1,52 @@
 #subpage twitter
 rex_socialhub_twitter = Twitter
 
-#tab account
+#tab settings
+rex_socialhub_twitter_settings = Einstellungen
 
-rex_socialhub_twitter_account_norowsmessage = Es wurden keine Accounts gefunden
+#tab settings / accounts
+rex_socialhub_twitter_settings_accounts = Accounts
 
-rex_socialhub_twitter_account_formcaption_add = Account hinzufügen
-rex_socialhub_twitter_account_formcaption_edit = Account bearbeiten
+rex_socialhub_twitter_settings_accounts_norowsmessage = Es wurden keine Accounts gefunden
 
-rex_socialhub_twitter_account_column_title = Titel
-rex_socialhub_twitter_account_column_functions = Funktionen
+rex_socialhub_twitter_settings_accounts_formcaption_add = Account hinzufügen
+rex_socialhub_twitter_settings_accounts_formcaption_edit = Account bearbeiten
 
-rex_socialhub_twitter_account_label_title = Titel
-rex_socialhub_twitter_account_label_consumer_token = Consumer Token
-rex_socialhub_twitter_account_label_consumer_secret_token = Consumer Secret Token
-rex_socialhub_twitter_account_label_access_token = Access Token
-rex_socialhub_twitter_account_label_secret_token = Secret Token
+rex_socialhub_twitter_settings_accounts_column_title = Titel
+rex_socialhub_twitter_settings_accounts_column_functions = Funktionen
+
+rex_socialhub_twitter_settings_accounts_label_title = Titel
+rex_socialhub_twitter_settings_accounts_label_consumer_token = Consumer Token
+rex_socialhub_twitter_settings_accounts_label_consumer_secret_token = Consumer Secret Token
+rex_socialhub_twitter_settings_accounts_label_access_token = Access Token
+rex_socialhub_twitter_settings_accounts_label_secret_token = Secret Token
+
+#tab settings / hashtags
+rex_socialhub_twitter_settings_hashtags = Hashtags
+
+rex_socialhub_twitter_settings_hashtags_norowsmessage = Es wurden keine Hashtags gefunden
+
+rex_socialhub_twitter_settings_hashtags_formcaption_add = Hashtag hinzufügen
+rex_socialhub_twitter_settings_hashtags_formcaption_edit = Hashtag bearbeiten
+
+rex_socialhub_twitter_settings_hashtags_column_hashtag = Hashtag
+rex_socialhub_twitter_settings_hashtags_column_functions = Funktionen
+
+rex_socialhub_twitter_settings_hashtags_label_hashtag = Hashtag
+
+#tab settings / timelines
+rex_socialhub_twitter_settings_timelines = Timelines
+
+rex_socialhub_twitter_settings_timelines_norowsmessage = Es wurden keine Timelines gefunden
+
+rex_socialhub_twitter_settings_timelines_formcaption_add = Timeline hinzufügen
+rex_socialhub_twitter_settings_timelines_formcaption_edit = Timeline bearbeiten
+
+rex_socialhub_twitter_settings_timelines_column_title = Titel
+rex_socialhub_twitter_settings_timelines_column_functions = Funktionen
+
+rex_socialhub_twitter_settings_timelines_label_title = Titel
+rex_socialhub_twitter_settings_timelines_label_user_id = User ID
 
 
 #permissions
