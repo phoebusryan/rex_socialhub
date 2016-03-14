@@ -155,7 +155,7 @@
 					
 					//Start - update next_id
 						$sql = rex_sql::factory();
-						$sql->setTable(rex::getTablePrefix().'socialhub_hashtags');
+						$sql->setTable(rex::getTablePrefix().'socialhub_twitter_hashtag');
 						$sql->setWhere('hashtag = "'.addslashes($hashtag['hashtag']).'"');
 						$sql->setValue('twitter_next_id', $lastId);
 						
