@@ -1,17 +1,18 @@
 <?php
 	class rex_socialhub_twitter extends rex_socialhub {
 		
-		public static $url = 'https://twitter.com';
-		public static $search_url = 'https://twitter.com/search?q=%23';
-		protected $table = 'rex_socialhub_twitter';
+//		public static $url = 'https://twitter.com';
+//		public static $search_url = 'https://twitter.com/search?q=%23';
+//		protected $table = 'rex_socialhub_twitter_entries';
 
-		private $counter = 0;
+//		private $counter = 0;
 
-		protected function __construct() {
-			$this->plugin = 'twitter';
-			parent::__construct();
-		}
-
+//		protected function __construct() {
+//			$this->plugin = 'twitter';
+//			parent::__construct();
+//		}
+		
+		/*
 		public function timeline() {
 			$sql = rex_sql::factory();
 			$sql->setTable($this->table);
@@ -80,76 +81,96 @@
 				}
 			}
 		}
+		*/
 		
-		public static function loadHashtags() {
-			$Hub = self::factory();
-			foreach($Hub->getHashtags() as $hashtag => $next_id)
-				$Hub->getDataByHashtag($hashtag,$next_id);
+		public static function getEntriesByTimeline() {
+			
+			
+			
+			//merge function cron() and timeline() into this
 		}
 		
-		private function getDataByHashtag($hashtag, $nextID = false) {
-			$Hub = self::factory();
-			$Accounts = rex_config::get('socialhub','twitter');
-			$Accounts = $Accounts['accounts'][0];
-			
-			if(!$Accounts) return;
-			
-			$connection = new Abraham\TwitterOAuth\TwitterOAuth($Accounts['consumer_token'], $Accounts['consumer_secret_token'], $Accounts['access_token'], $Accounts['secret_token']);
-			if($next_id != 0) {
-				$response = $connection->get("search/tweets",['q'=>'#'.$hashtag,'since_id'=>$next_id]);
-			} else {
-				$response = $connection->get("search/tweets",['q'=>'#'.$hashtag]);
-			}
-			
-			foreach($response->statuses as $data) {
-				$lastId = $data->id;
-				$this->saveHashtagEntry($data,$hashtag);
-			}
-			
-			$sql = rex_sql::factory();
-			$sql->debugsql = 0;
-			$sql->setTable(rex::getTablePrefix().'socialhub_hashtags');
-			$sql->setWhere('hashtag = "'.addslashes($hashtag).'"');
-			$sql->setValue($this->plugin.'_next_id', $lastId);
-			
-			try {
-				$sql->update();
-			} catch (rex_sql_exception $e) {
-				echo rex_view::warning($e->getMessage());
-			}
-		}
-		
-		private function saveHashtagEntry($data,$query) {
-		 if (empty($data->retweeted_status)) {
+		public static function getEntriesByHashtag() {
+			//Start - get all hashtags from the database
 				$sql = rex_sql::factory();
-				$sql->debugsql = 0;
-				$sql->setTable(rex::getTablePrefix().'socialhub_entries');
+				$hashtags = $sql->getArray('SELECT `hashtag`, `twitter_next_id` FROM `'.rex::getTablePrefix().'socialhub_twitter_hashtag` ORDER BY `hashtag` ASC');
+				unset($sql);
 				
-				$sql->setValue('source', $this->plugin);
-				$sql->setValue('source_id', $data->id);
-				$sql->setValue('caption', urlencode($data->text ? addslashes($data->text) : ''));
-				
-				if ($data->entities && !empty($data->entities->media)) {
-					$sql->setValue('image', $data->entities->media[0]->media_url);
+				if (empty($hashtags)) {
+					return false;
 				}
+			//End - get all hashtags from the database
+			
+			//Start - get all accounts from the database
+				$sql = rex_sql::factory();
+				$accounts = $sql->getArray('SELECT * FROM `'.rex::getTablePrefix().'socialhub_twitter_account` ORDER BY `id` ASC');
+				unset($sql);
 				
-				$sql->setValue('created_time', date('Y-m-d H:i:s',strtotime($data->created_at)));
-				$sql->setValue('user_id', $data->user->id);
-				$sql->setValue('query', $query);
-				$sql->setValue('visible', ((!empty($data->entities->media)) ? '1' : '0'));
-				
-				try {
-					$sql->insert();
-					$this->counter++;
-				} catch (rex_sql_exception $e) {
-					echo rex_view::warning($e->getMessage());
+				if (empty($accounts)) {
+					return false;
 				}
-			}
-		}
-		
-		public static function factory() {
-			$class = static::getFactoryClass();
-			return new $class();
+			//End - get all accounts from the database
+			
+			//Start - get entries by hashtag from twitter
+				$countEntries = 0;
+				
+				foreach ($hashtags as $hashtag) {
+					$connection = new Abraham\TwitterOAuth\TwitterOAuth($accounts[0]['consumer_token'], $accounts[0]['consumer_secret_token'], $accounts[0]['access_token'], $accounts[0]['secret_token']);
+					if($hashtag['twitter_next_id'] != 0) {
+						$response = $connection->get("search/tweets", ['q'=>'#'.$hashtag['hashtag'], 'since_id' => $hashtag['twitter_next_id']]);
+					} else {
+						$response = $connection->get("search/tweets", ['q'=>'#'.$hashtag['hashtag']]);
+					}
+					
+					foreach ($response->statuses as $data) {
+						$lastId = $data->id;
+						
+						if (empty($data->retweeted_status)) {
+							$sql = rex_sql::factory();
+							$sql->setTable(rex::getTablePrefix().'socialhub_entries');
+							
+							$sql->setValue('source', 'twitter');
+							$sql->setValue('source_id', $data->id);
+							$sql->setValue('caption', urlencode($data->text ? addslashes($data->text) : ''));
+							
+							if ($data->entities && !empty($data->entities->media)) {
+								$sql->setValue('image', $data->entities->media[0]->media_url);
+							}
+							
+							$sql->setValue('created_time', date('Y-m-d H:i:s',strtotime($data->created_at)));
+							$sql->setValue('user_id', $data->user->id);
+							$sql->setValue('query', $hashtag['hashtag']);
+							$sql->setValue('visible', ((!empty($data->entities->media)) ? '1' : '0'));
+							
+							try {
+								$sql->insert();
+								$countEntries++;
+							} catch (rex_sql_exception $e) {
+								echo rex_view::warning($e->getMessage());
+							}
+							
+							unset($sql);
+						}
+					}
+					
+					//Start - update next_id
+						$sql = rex_sql::factory();
+						$sql->setTable(rex::getTablePrefix().'socialhub_hashtags');
+						$sql->setWhere('hashtag = "'.addslashes($hashtag['hashtag']).'"');
+						$sql->setValue('twitter_next_id', $lastId);
+						
+						try {
+							$sql->update();
+						} catch (rex_sql_exception $e) {
+							echo rex_view::warning($e->getMessage());
+						}
+						
+						unset($sql);
+					//End - update next_id
+				}
+			//End - get entries by hashtag from twitter
+			
+			return $countEntries;
 		}
 	}
 ?>
