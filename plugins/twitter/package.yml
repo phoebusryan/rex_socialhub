@@ -1,6 +1,6 @@
 package: rex_socialhub/twitter
-version: 1.0.1
-author: Thomas Kaegi, Sascha Weidner
+version: 2.0.0
+author: Thomas Kaegi
 supportpage: https://github.com/phoebusryan/rex_socialhub/tree/master/plugins/twitter
 
 requires:
@@ -12,9 +12,8 @@ page:
     perm: rex_socialhub[twitter]
     pjax: true
     subpages:
-        accounts: { title: 'translate:accounts' }
+        settings: { title: 'translate:settings' }
         entries: { title: 'translate:entries' }
-        highlights: { title: 'translate:highlights' }
 
 entries: true
 hashtags: true
