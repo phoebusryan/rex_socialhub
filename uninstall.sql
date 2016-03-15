@@ -1,1 +1,1 @@
-DROP TABLE IF EXISTS `%TABLE_PREFIX%socialhub_hashtags`;
+DROP TABLE IF EXISTS `%TABLE_PREFIX%socialhub_entry_hashtag`;
