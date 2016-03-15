@@ -1,6 +1,6 @@
 package: rex_socialhub
-version: 1.2.2
-author: Thomas Kaegi, Sascha Weidner
+version: 2.0.0
+author: Thomas Kaegi
 supportpage: github.com/phoebusryan/rex_socialhub
 
 page:
@@ -12,12 +12,3 @@ page:
         default:
             title: 'translate:default'
             perm: rex_socialhub[default]
-        hashtags:
-            title: 'translate:hashtags'
-            subpages:
-                hashtags:
-                    title: 'translate:hashtags'
-                    perm: rex_socialhub[hashtags]
-                entries:
-                    title: 'translate:entries'
-                    perm: rex_socialhub[entries]
