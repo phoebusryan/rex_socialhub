@@ -13,7 +13,5 @@ page:
     pjax: true
     subpages:
         settings: { title: 'translate:settings' }
-        entries: { title: 'translate:entries' }
-
-entries: true
-hashtags: true
+        hashtagentries: { title: 'translate:hashtag_entries' }
+        timelineentries: { title: 'translate:timeline_entries' }
