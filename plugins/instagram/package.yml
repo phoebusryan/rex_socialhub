@@ -1,6 +1,6 @@
 package: rex_socialhub/instagram
-version: 1.0.1
-author: Thomas Kaegi, Sascha Weidner
+version: 2.0.0
+author: Thomas Kaegi
 supportpage: https://github.com/phoebusryan/rex_socialhub/tree/master/plugins/instagram
 
 requires:
@@ -12,9 +12,6 @@ page:
     perm: rex_socialhub[instagram]
     pjax: true
     subpages:
-        index: { title: 'translate:settings' }
-        entries: { title: 'translate:entries' }
-        highlights: { title: 'translate:highlights' }
-
-entries: true
-hashtags: true
+        settings: { title: 'translate:settings' }
+        hashtagentries: { title: 'translate:hashtag_entries' }
+        timelineentries: { title: 'translate:timeline_entries' }
