@@ -1,22 +1,6 @@
 <?php
-
-	class rex_socialhub_facebook extends rex_socialhub {
-
-    protected $table = 'rex_socialhub_facebook';
-
-    protected function __construct() {
-      parent::__construct();
-    }
-
-    public function timeline() {
-      return 'TIMELINE FB<br>';
-    }
-
-    public function findBy() {
-      
-    }
-
-
+	class rex_socialhub_facebook {
+		
 		public static function cron() {
 
       $fb = new Facebook\Facebook([
@@ -68,17 +52,5 @@
         }
       }
 		}
-
-    /**
-     * Creates a socialhub_facebook instance.
-     *
-     * @param int $DBID
-     *
-     * @return static Returns a socialhub_facebook instance
-     */
-    public static function factory() {
-      $class = static::getFactoryClass();
-      return new $class();
-    }
 	}
 ?>
