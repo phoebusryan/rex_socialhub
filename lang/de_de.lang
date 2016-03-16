@@ -7,6 +7,8 @@ rex_socialhub_timeline_entries = Timeline-Einträge
 rex_socialhub_entries_column_caption = Caption
 rex_socialhub_entries_column_status = Status
 
+rex_socialhub_entries_norowsmessage = Es wurden keine Einträge gefunden
+
 #permissions
 perm_general_socialhub[] = Rechte für Socialhub-Addon
 perm_general_socialhub[hashtag] = Rechte für die Seite 'Hashtag'
