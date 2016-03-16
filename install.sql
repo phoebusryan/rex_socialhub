@@ -14,7 +14,7 @@ CREATE TABLE IF NOT EXISTS `%TABLE_PREFIX%socialhub_entry_hashtag` (
  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
-CREATE TABLE `rex_socialhub_entry_timeline` (
+CREATE TABLE IF NOT EXISTS `%TABLE_PREFIX%socialhub_entry_timeline` (
  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
  `visible` tinyint(1) NOT NULL,
  `source` varchar(20) NOT NULL,
