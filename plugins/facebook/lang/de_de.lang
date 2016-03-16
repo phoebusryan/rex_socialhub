@@ -1,15 +1,38 @@
 #subpage facebook
 rex_socialhub_facebook = Facebook
-rex_socialhub_facebook_infotext = Lorem Ipsum
-rex_socialhub_facebook_button_save = Speichern
 
-rex_socialhub_facebook_page = Facebookseite
+#tab settings
+rex_socialhub_facebook_settings = Einstellungen
 
-rex_socialhub_facebook_highlights = Hervorgehoben
+#tab settings / accounts
+rex_socialhub_facebook_settings_accounts = Accounts
+
+rex_socialhub_facebook_settings_accounts_norowsmessage = Es wurden keine Accounts gefunden
+
+rex_socialhub_facebook_settings_accounts_formcaption_add = Account hinzufügen
+rex_socialhub_facebook_settings_accounts_formcaption_edit = Account bearbeiten
+
+rex_socialhub_facebook_settings_accounts_column_title = Titel
+rex_socialhub_facebook_settings_accounts_column_functions = Funktionen
+
+rex_socialhub_facebook_settings_accounts_label_title = Titel
+rex_socialhub_facebook_settings_accounts_label_app_id = App ID
+rex_socialhub_facebook_settings_accounts_label_app_secret = App Secret
+
+#tab settings / timelines
+rex_socialhub_facebook_settings_timelines = Timelines
+
+rex_socialhub_facebook_settings_timelines_norowsmessage = Es wurden keine Timelines gefunden
+
+rex_socialhub_facebook_settings_timelines_formcaption_add = Timeline hinzufügen
+rex_socialhub_facebook_settings_timelines_formcaption_edit = Timeline bearbeiten
+
+rex_socialhub_facebook_settings_timelines_column_title = Titel
+rex_socialhub_facebook_settings_timelines_column_functions = Funktionen
+
+rex_socialhub_facebook_settings_timelines_label_title = Titel
+rex_socialhub_facebook_settings_timelines_label_user_id = User ID
+
 
 #permissions
-perm_general_rex_socialhub[facebook] = Rechte für die Seite 'Facebook'
-
-# Error
-rex_socialhub_facebook_no_page = Es konnte keine Facebook-Seite gefunden werden
-rex_socialhub_facebook_no_connection = Keine Verbindung zu Facebook möglich. Bitte Prüfe die Internetverbindung, Firewall- und Proxy-Einstellungen des Servers
+perm_general_rex_socialhub[facebook] = Rechte für die Seite 'facebook'
