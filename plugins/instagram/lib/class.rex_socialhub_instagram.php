@@ -1,20 +1,153 @@
 <?php
+	class rex_socialhub_instagram {
+	
+		public static function getEntriesByTimeline() {
+			/*
+			//Start - get all timelines from the database
+				$sql = rex_sql::factory();
+				$timelines = $sql->getArray('SELECT `user_id`, `instagram_next_id` FROM `'.rex::getTablePrefix().'socialhub_instagram_timeline`');
+				unset($sql);
+				
+				if (empty($timelines)) {
+					return false;
+				}
+			//End - get all timelines from the database
+			
+			//Start - get all accounts from the database
+				$sql = rex_sql::factory();
+				$accounts = $sql->getArray('SELECT * FROM `'.rex::getTablePrefix().'socialhub_instagram_account` ORDER BY `id` ASC');
+				unset($sql);
+				
+				if (empty($accounts)) {
+					return false;
+				}
+			//End - get all accounts from the database
+			
+			//Start - get entries by timeline from instagram
+				foreach ($timelines as $timeline) {
+					$connection = new Abraham\TwitterOAuth\TwitterOAuth($accounts[0]['consumer_token'], $accounts[0]['consumer_secret_token'], $accounts[0]['access_token'], $accounts[0]['secret_token']);
+					$response = $connection->get("statuses/user_timeline",['user_id'=>$timeline['user_id']]); //todo: add since_id
+					
+					foreach ($response as $r) {
+						if (empty($r->in_reply_to_status_id)) {
+							$sql = rex_sql::factory();
+							$sql->setTable(rex::getTablePrefix().'socialhub_entry_timeline');
+							
+							$sql->setValue('source', 'twitter');
+							$sql->setValue('post_id', $r->id_str);
+							$sql->setValue('message', $r->text);
+							$sql->setValue('author_id', $r->user->id);
+							$sql->setValue('author_name', $r->user->screen_name);
+							$sql->setValue('created_time', date('Y-m-d H:i:s', strtotime($r->created_at)));
+							
+							try {
+								$sql->insert();
+							} catch (rex_sql_exception $e) {
+								echo rex_view::warning($e->getMessage());
+							}
+							
+							unset($sql);
+						}
+					}
+				}
+			//End - get entries by timeline from instagram
+			*/
+		}
+		
+		public static function getEntriesByHashtag() {
+			//Start - get all hashtags from the database
+				$sql = rex_sql::factory();
+				$hashtags = $sql->getArray('SELECT `hashtag`, `instagram_next_id` FROM `'.rex::getTablePrefix().'socialhub_instagram_hashtag`');
+				unset($sql);
+				
+				if (empty($hashtags)) {
+					return false;
+				}
+			//End - get all hashtags from the database
+			
+			//Start - get all accounts from the database
+				$sql = rex_sql::factory();
+				$accounts = $sql->getArray('SELECT * FROM `'.rex::getTablePrefix().'socialhub_instagram_account` ORDER BY `id` ASC');
+				unset($sql);
+				
+				if (empty($accounts)) {
+					return false;
+				}
+			//End - get all accounts from the database
+				
+			//Start - get entries by hashtag from instagram
+				foreach ($hashtags as $hashtag) {
+					if ($hashtag['instagram_next_id'] != 0) {
+						$url = 'https://api.instagram.com/v1/tags/'.$hashtag['hashtag'].'/media/recent?count=100&client_id='.$accounts[0]['client_id'].'&min_tag_id='.$hashtag['instagram_next_id'];
+					} else {
+						$url = 'https://api.instagram.com/v1/tags/'.$hashtag['hashtag'].'/media/recent?count=100&client_id='.$accounts[0]['client_id'];
+					}
+					
+					$response = self::curlURL($url);
+					$response = json_decode($response);
+					
+					foreach ($response->data as $data) {
+						$sql = rex_sql::factory();
+						$sql->setTable(rex::getTablePrefix().'socialhub_entry_hashtag');
+						
+						$sql->setValue('source', 'instagram');
+						$sql->setValue('source_id', $data->id);
+						$sql->setValue('caption', urlencode($data->caption->text));
+						
+						if (!empty($data->images->standard_resolution->url)) {
+							$sql->setValue('image', $data->images->standard_resolution->url);
+						}
+						
+						$sql->setValue('created_time', date('Y-m-d H:i:s',$data->created_time));
+						$sql->setValue('author_id', $data->user->id);
+						$sql->setValue('author_name', $data->user->username);
+						$sql->setValue('query', $hashtag['hashtag']);
+						
+						try {
+							$sql->insert();
+						} catch (rex_sql_exception $e) {
+							echo rex_view::warning($e->getMessage());
+						}
+						
+						unset($sql);
+					}
+					
+					//Start - update next_id
+						$sql = rex_sql::factory();
+						$sql->setTable(rex::getTablePrefix().'socialhub_instagram_hashtag');
+						$sql->setWhere('hashtag = "'.addslashes($hashtag['hashtag']).'"');
+						$sql->setValue('instagram_next_id', $response->pagination->min_tag_id);
+						
+						try {
+							$sql->update();
+						} catch (rex_sql_exception $e) {
+							echo rex_view::warning($e->getMessage());
+						}
+						
+						unset($sql);
+					//End - update next_id
+					
+				}
+			//End - get entries by hashtag from instagram
+		}
+		
+		private static function curlUrl($url) {
+			$ch = curl_init();
+			curl_setopt_array($ch, [
+				CURLOPT_URL => $url,
+				CURLOPT_RETURNTRANSFER => true,
+				CURLOPT_SSL_VERIFYPEER => false,
+				CURLOPT_SSL_VERIFYHOST => 2
+			]);
+			
+			$result = curl_exec($ch);
+			curl_close($ch);
+			
+			return $result;
+		}
 
-	class rex_socialhub_instagram extends rex_socialhub {
 
-		public static $url = 'https://instagram.com';
-		public static $post_dir = '/p/';
-    public static $search_url = 'https://www.instagram.com/explore/tags/';
-
-    protected $table = 'rex_socialhub_instagram';
-
-		private $counter = 0;
-
-    protected function __construct() {
-    	$this->plugin = 'instagram';
-      parent::__construct();
-    }
-
+		/*
     public function timeline() {
       $sql = rex_sql::factory();
       $sql->setTable($this->table);
@@ -43,10 +176,6 @@
       return $entry;
     }
 
-    public function findBy() {
-      
-    }
-    
 
 		public static function cron() {
 			$Hub = self::factory();
@@ -90,119 +219,6 @@
         }
 			}
 		}
-
-		public static function loadHashtags() {
-			$Hub = self::factory();
-      $Hashtags = $Hub->getHashtags();
-
-      if(empty($Hashtags)) {
-        echo rex_view::error(rex_i18n::msg('socialhub_instagram_no_hashtags'));
-        return;
-      }
-			foreach($Hub->getHashtags() as $hashtag => $next_id)
-				$Hub->getDataByHashtag($hashtag,$next_id);
-		}
-		
-		private function getDataByHashtag($hashtag, $nextID = false) {
-			$Token = rex_config::get('socialhub','instagram');
-			$Token = $Token['access_token'];
-			if(!$Token) {
-        echo rex_view::error(rex_i18n::msg('socialhub_instagram_no_account'));
-        return;
-      }
-
-			if ($nextID && $nextID != 0) {
-				$url = 'https://api.instagram.com/v1/tags/'.$hashtag.'/media/recent?count=100&access_token='.$Token.'&min_tag_id='.$nextID;
-			} else {
-				$url = 'https://api.instagram.com/v1/tags/'.$hashtag.'/media/recent?count=100&access_token='.$Token;
-			}
-
-			$response = $this->curlURL($url);
-			$response = json_decode($response);
-
-      if(empty($response)) {
-        echo rex_view::error(rex_i18n::msg('socialhub_instagram_no_response'));
-        return;
-      }
-
-			if($response->pagination && property_exists($response->pagination,'min_tag_id') && $response->pagination->min_tag_id !== 0) {
-				$hash_sql = rex_sql::factory();
-				$hash_sql->setTable(rex::getTablePrefix().'socialhub_hashtags');
-				$hash_sql->setWhere('hashtag = "'.$hashtag.'"');
-				$hash_sql->setValue($this->plugin.'_next_id', $response->pagination->min_tag_id);
-
-				try {
-	        $hash_sql->update();
-	      } catch (rex_sql_exception $e) {
-	        echo rex_view::warning($e->getMessage());
-	      }
-			}
-			
-			$entries = [];
-			if($response->meta->code == 200) {
-				$counter = 0;
-				
-				foreach($response->data as $data) {
-					$this->saveHashtagEntry($data,'#'.$hashtag);
-				}
-			}
-
-      return true;
-		}
-
-		private function saveHashtagEntry($data,$query) {
-			global $REX;
-			
-			$sql = rex_sql::factory();
-			$sql->setTable(rex::getTablePrefix().'socialhub_entries');
-			
-			$sql->setValue('source', $this->plugin);
-			$sql->setValue('source_id', substr($data->id,0,strpos($data->id,'_')));
-			$sql->setValue('post_id', substr($data->link,(strpos($data->link,self::$post_dir)+strlen(self::$post_dir)),-1));
-			$sql->setValue('caption', urlencode($data->caption ? addslashes($data->caption->text) : ''));
-			$sql->setValue('image', $data->images->standard_resolution->url);
-			$sql->setValue('created_time', date('Y-m-d H:i:s',$data->created_time));
-			$sql->setValue('user_id', $data->user->id);
-			$sql->setValue('query', addslashes($query));
-			$sql->setValue('visible', '1');
-			if(!empty($data->videos)) {
-				$sql->setValue('video', $data->videos->standard_resolution->url);
-			}
-			
-			try {
-        $sql->insert();
-      } catch (rex_sql_exception $e) {
-        echo rex_view::warning($e->getMessage());
-      }
-		}
-
-		public function getAccountData($accounts) {
-			if(empty($accounts)) return [];
-
-			$arrAccounts = [];
-			foreach($accounts as $key => $account) {
-				$User = json_decode($this->curlURL('https://api.instagram.com/v1/users/self?access_token='.$account),1);
-				if(empty($User['data'])) continue;
-				$arrAccounts[$account] = $User['data'];
-			}
-			if(!empty($arrAccounts))
-				$arrAccounts = array_filter($arrAccounts);
-			return $arrAccounts;
-		}
-
-
-    /**
-     * Creates a socialhub_instagram instance.
-     *
-     * @param int $DBID
-     *
-     * @return static Returns a socialhub_instagram instance
-     */
-    public static function factory() {
-      $class = static::getFactoryClass();
-      return new $class();
-    }
-		
+		*/
 	}
-
 ?>
