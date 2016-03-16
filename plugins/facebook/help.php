@@ -1,1 +1,0 @@
-<p>Readme, Hilfe, Fehlermelden: <a href="https://github.com/factorylabs/redaxo_socialhub/tree/master/plugins/facebook" target="_blank">Plugin auf Github</a></p>
