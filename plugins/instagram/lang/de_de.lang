@@ -1,21 +1,50 @@
 #subpage instagram
 rex_socialhub_instagram = Instagram
-rex_socialhub_instagram_infotext = Lorem Ipsum
-rex_socialhub_instagram_button_save = Speichern
 
-rex_socialhub_general = Allgemein
-rex_socialhub_accounts = Accounts
+#tab settings
+rex_socialhub_instagram_settings = Einstellungen
 
-rex_socialhub_instagram_client = Client ID
-rex_socialhub_instagram_access_token = Access Token
-rex_socialhub_instagram_highlights = Hervorgehoben
+#tab settings / accounts
+rex_socialhub_instagram_settings_accounts = Accounts
 
-rex_socialhub_instagram_account = Account
+rex_socialhub_instagram_settings_accounts_norowsmessage = Es wurden keine Accounts gefunden
+
+rex_socialhub_instagram_settings_accounts_formcaption_add = Account hinzufügen
+rex_socialhub_instagram_settings_accounts_formcaption_edit = Account bearbeiten
+
+rex_socialhub_instagram_settings_accounts_column_title = Titel
+rex_socialhub_instagram_settings_accounts_column_functions = Funktionen
+
+rex_socialhub_instagram_settings_accounts_label_title = Titel
+rex_socialhub_instagram_settings_accounts_label_client_id = Client ID
+
+#tab settings / hashtags
+rex_socialhub_instagram_settings_hashtags = Hashtags
+
+rex_socialhub_instagram_settings_hashtags_norowsmessage = Es wurden keine Hashtags gefunden
+
+rex_socialhub_instagram_settings_hashtags_formcaption_add = Hashtag hinzufügen
+rex_socialhub_instagram_settings_hashtags_formcaption_edit = Hashtag bearbeiten
+
+rex_socialhub_instagram_settings_hashtags_column_hashtag = Hashtag
+rex_socialhub_instagram_settings_hashtags_column_functions = Funktionen
+
+rex_socialhub_instagram_settings_hashtags_label_hashtag = Hashtag
+
+#tab settings / timelines
+rex_socialhub_instagram_settings_timelines = Timelines
+
+rex_socialhub_instagram_settings_timelines_norowsmessage = Es wurden keine Timelines gefunden
+
+rex_socialhub_instagram_settings_timelines_formcaption_add = Timeline hinzufügen
+rex_socialhub_instagram_settings_timelines_formcaption_edit = Timeline bearbeiten
+
+rex_socialhub_instagram_settings_timelines_column_title = Titel
+rex_socialhub_instagram_settings_timelines_column_functions = Funktionen
+
+rex_socialhub_instagram_settings_timelines_label_title = Titel
+rex_socialhub_instagram_settings_timelines_label_user_id = User ID
+
 
 #permissions
-perm_general_rex_socialhub[instagram] = Rechte für die Seite 'Instagram'
-
-#Error
-rex_socialhub_instagram_no_account = Es konnten keine Account-Daten für Instagram gefunden werden! Bitte registriere deine Account-Daten.
-rex_socialhub_instagram_no_response = Es wurden keine Daten zurückgeliefert. Bitte überprüfe ggf. Internetverbindung, Firewall und Proxy-Einstellungen des Servers.
-rex_socialhub_instagram_no_hashtags = Es konnten keine Hashtags gefunden werde. Bitte lege ggf. Hashtags an.
+perm_general_rex_socialhub[instagram] = Rechte für die Seite 'instagram'
