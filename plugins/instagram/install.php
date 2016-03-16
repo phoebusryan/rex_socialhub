@@ -29,7 +29,7 @@
 	
 	$newCron->reset();
 	$newCron->setTable(REX_CRONJOB_TABLE);
-	$newCron->setWhere(array('name'=>'Update Twitter-Hashtags'));
+	$newCron->setWhere(array('name'=>'Update Instagram-Hashtags'));
 	$newCron->select();
 	
 	if($newCron->getRows() === 0) {
