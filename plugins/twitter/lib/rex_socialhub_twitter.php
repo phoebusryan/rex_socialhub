@@ -93,7 +93,7 @@
 							$sql->setValue('source_id', $data->id);
 							$sql->setValue('caption', urlencode($data->text ? addslashes($data->text) : ''));
 							
-							if ($data->entities && !empty($data->entities->media)) {
+							if (!empty($data->entities->media)) {
 								$sql->setValue('image', $data->entities->media[0]->media_url);
 							}
 							
@@ -101,7 +101,6 @@
 							$sql->setValue('author_id', $data->user->id);
 							$sql->setValue('author_name', $data->user->screen_name);
 							$sql->setValue('query', $hashtag['hashtag']);
-							$sql->setValue('visible', ((!empty($data->entities->media)) ? '1' : '0'));
 							
 							try {
 								$sql->insert();
