@@ -1,6 +1,9 @@
 ##Allgemein
 rex_socialhub_title = Socialhub
 
+rex_socialhub_default = Info
+rex_socialhub_default_text = Bitte installiere ein Plugin.
+
 rex_socialhub_hashtag_entries = Hashtag-Einträge
 rex_socialhub_timeline_entries = Timeline-Einträge
 
@@ -11,5 +14,3 @@ rex_socialhub_entries_norowsmessage = Es wurden keine Einträge gefunden
 
 #permissions
 perm_general_socialhub[] = Rechte für Socialhub-Addon
-perm_general_socialhub[hashtag] = Rechte für die Seite 'Hashtag'
-perm_general_socialhub[entries] = Rechte für die Seite 'Einträge'
