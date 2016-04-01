@@ -32,6 +32,7 @@ rex_socialhub_facebook_settings_timelines_column_functions = Funktionen
 
 rex_socialhub_facebook_settings_timelines_label_title = Titel
 rex_socialhub_facebook_settings_timelines_label_user_id = User ID
+rex_socialhub_facebook_settings_timelines_label_user_id_help = Hilfe
 
 
 #permissions
