@@ -97,7 +97,7 @@
 		//End - add app_id-field
 		
 		//Start - add app_secret-field
-			$field = $form->addTextField('consumer_secret_token');
+			$field = $form->addTextField('app_secret');
 			$field->setLabel($this->i18n('facebook_settings_accounts_label_app_secret'));
 		//End - add app_secret-field
 		
@@ -138,7 +138,7 @@
 		
 		//Start - add user_id-field
 			$field = $form->addTextField('user_id');
-			$field->setLabel($this->i18n('facebook_settings_timelines_label_user_id'));
+			$field->setLabel($this->i18n('facebook_settings_timelines_label_user_id').' <a href="http://findmyfbid.com/">'.$this->i18n('facebook_settings_timelines_label_user_id_help').'</a>');
 		//End - add user_id-field
 		
 		if ($func == 'editTimeline') {
